@@ -17,9 +17,11 @@ struct MemoryGame<CardContent> { //this is like List<t>  but struct
             cards.append(Card(id: index*2,  content: content))
             cards.append(Card(id: index*2+1, content: content))
         }
+        cards.shuffle()
+        numberOfPairs = numberOfPairsCards
     }
-    
-    
+
+    var numberOfPairs : Int
     var cards : Array<Card>
     
     func shoose(card: Card)  {
@@ -28,7 +30,7 @@ struct MemoryGame<CardContent> { //this is like List<t>  but struct
     
     struct Card : Identifiable {
         var id : Int
-        var isFaceUp :  Bool = false
+        var isFaceUp :  Bool = true
         var isMatched :  Bool = false
         var content : CardContent
     }

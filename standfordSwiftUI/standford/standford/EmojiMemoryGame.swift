@@ -13,8 +13,9 @@ class EmojiMemoryGame  {
     private var  model :  MemoryGame<String> = createMemoryGame()
         
     static func createMemoryGame() ->  MemoryGame<String> {
-        let emoji : Array<String> = ["🎃","☠️","👽","🥶"]
-        return  MemoryGame<String>(numberOfPairsCards: emoji.count) { index in
+        let emoji : Array<String> = ["🎃","☠️","👽","🥶", "X"]
+        let randomNumberOfPairs = Int.random(in:2...5)
+        return  MemoryGame<String>(numberOfPairsCards: randomNumberOfPairs) { index in
             emoji[index]
         }
     }
@@ -22,9 +23,15 @@ class EmojiMemoryGame  {
     var cards: Array<MemoryGame<String>.Card>{
          model.cards
     }
+    
+    var numberOfPairs : Int {
+        model.numberOfPairs
+    }
     //  MARK:  -  set
     
     func shoose(card: MemoryGame<String>.Card)  {
         model.shoose(card: card)
     }
+    
+    
 }
