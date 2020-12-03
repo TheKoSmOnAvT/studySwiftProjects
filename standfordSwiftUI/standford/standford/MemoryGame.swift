@@ -24,13 +24,23 @@ struct MemoryGame<CardContent> { //this is like List<t>  but struct
     var numberOfPairs : Int
     var cards : Array<Card>
     
-    func shoose(card: Card)  {
-        print("Choose  card: \(card)")
+    mutating func shoose(card: Card)  {
+       let index = getIndex(card: card)
+        self.cards[index].isFaceUp = !self.cards[index].isFaceUp
+    }
+    
+    func getIndex(card: Card) -> Int{
+        for i in 0..<cards.count {
+            if cards[i].id == card.id {
+                return i
+            }
+        }
+        return -1
     }
     
     struct Card : Identifiable {
         var id : Int
-        var isFaceUp :  Bool = true
+        var isFaceUp :  Bool = false
         var isMatched :  Bool = false
         var content : CardContent
     }
