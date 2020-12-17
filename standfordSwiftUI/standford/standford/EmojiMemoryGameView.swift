@@ -11,16 +11,14 @@ import SwiftUI
 struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel : EmojiMemoryGame
     var body: some View {
-        HStack  {
-            ForEach(viewModel.cards) { card in
-                CardView(card: card, numberOfPairs: viewModel.numberOfPairs).onTapGesture {
-                    viewModel.shoose(card: card)
-                }.aspectRatio(0.66, contentMode: .fit)
+        Grid(viewModel.cards) { card in
+            CardView(card: card, numberOfPairs: viewModel.numberOfPairs).onTapGesture {
+                viewModel.shoose(card: card)
             }
+            .padding(6)
         }
         .padding()
         .foregroundColor(Color.orange)
-        .font(Font.largeTitle)
     }
 }
 
@@ -35,14 +33,35 @@ struct CardView : View {
     var card : MemoryGame<String>.Card
     var numberOfPairs : Int
     var body: some View {
+        GeometryReader ( content: { geometry in
+            body(for: geometry.size)
+        })
+    }
+    
+    func body(for size: CGSize) -> some View {
         ZStack {
             if card.isFaceUp {
-                RoundedRectangle(cornerRadius: 10).fill(Color.white)
-                RoundedRectangle(cornerRadius: 10).stroke(lineWidth: 3)
-                Text(card.content).font(numberOfPairs >= 4 ? Font.title : Font.largeTitle)
+                RoundedRectangle(cornerRadius: cornerRadius).fill(Color.white)
+                RoundedRectangle(cornerRadius: cornerRadius).stroke(lineWidth: lineWidth)
+                Text(card.content)
             } else {
-                      RoundedRectangle(cornerRadius: 10).fill()
+                if !card.isMatched {
+                      RoundedRectangle(cornerRadius: cornerRadius).fill()
+                }
             }
         }
+    .font(Font.system(size: fontSize(for: size)))
     }
+    
+    func fontSize(for size : CGSize) ->  CGFloat {
+        return min(size.width, size.height) * percentOfGeometry
+    }
+    
+    
+    // MARK: - constants
+    
+    let cornerRadius : CGFloat = 10
+    let lineWidth : CGFloat = 3
+    let percentOfGeometry : CGFloat = 0.7
+    
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MemoryGame<CardContent> { //this is like List<t>  but struct
+struct MemoryGame<CardContent> where CardContent : Equatable { //this is like List<t>  but struct
     
     init(numberOfPairsCards: Int,  cardContentFactory :  (Int) -> CardContent){
         cards = Array<Card>()
@@ -23,19 +23,32 @@ struct MemoryGame<CardContent> { //this is like List<t>  but struct
 
     var numberOfPairs : Int
     var cards : Array<Card>
-    
-    mutating func shoose(card: Card)  {
-       let index = getIndex(card: card)
-        self.cards[index].isFaceUp = !self.cards[index].isFaceUp
-    }
-    
-    func getIndex(card: Card) -> Int{
-        for i in 0..<cards.count {
-            if cards[i].id == card.id {
-                return i
+    var indexOfOneCardWithFaceUp : Int? {
+        get {
+            return cards.indices.filter {  (index) -> Bool in return cards[index].isFaceUp }.only
+        }
+        set {
+            for indexCard in cards.indices {
+                cards[indexCard].isFaceUp = indexCard == newValue
             }
         }
-        return -1
+    }
+    
+    mutating func shoose(card: Card)  {
+        if let index = cards.firstIndex(of: card), !cards[index].isFaceUp, !cards[index].isMatched {
+            if let potentionalCardMatchIndex = indexOfOneCardWithFaceUp {
+                if cards[index].content == cards[potentionalCardMatchIndex].content{
+                    cards[index].isMatched = true
+                    cards[potentionalCardMatchIndex].isMatched = true
+                }
+                self.cards[index].isFaceUp = true
+            } else {
+                indexOfOneCardWithFaceUp = index
+            }
+            
+            
+           
+        }
     }
     
     struct Card : Identifiable {
