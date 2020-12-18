@@ -22,8 +22,8 @@ struct MemoryGame<CardContent> where CardContent : Equatable { //this is like Li
     }
 
     var numberOfPairs : Int
-    var cards : Array<Card>
-    var indexOfOneCardWithFaceUp : Int? {
+    private(set) var cards : Array<Card>
+    private var indexOfOneCardWithFaceUp : Int? {
         get {
             return cards.indices.filter {  (index) -> Bool in return cards[index].isFaceUp }.only
         }
