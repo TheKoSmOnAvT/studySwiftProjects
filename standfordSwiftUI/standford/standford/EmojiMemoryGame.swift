@@ -11,7 +11,7 @@ import SwiftUI
 
 class EmojiMemoryGame: ObservableObject {
     @Published private var  model:  MemoryGame<String> = createMemoryGame()
-        
+    
     private static func createMemoryGame() ->  MemoryGame<String> {
         let emoji: Array<String> = ["🎃","☠️","👽","🥶", "X"]
         let randomNumberOfPairs = Int.random(in:2...5)
@@ -33,5 +33,7 @@ class EmojiMemoryGame: ObservableObject {
         model.shoose(card: card)
     }
     
-    
+    func resetGame(){
+        model = EmojiMemoryGame.createMemoryGame()
+    }
 }

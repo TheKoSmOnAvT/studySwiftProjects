@@ -11,14 +11,25 @@ import SwiftUI
 struct EmojiMemoryGameView: View {
     @ObservedObject var viewModel : EmojiMemoryGame
     var body: some View {
+        VStack {
         Grid(viewModel.cards) { card in
             CardView(card: card, numberOfPairs: viewModel.numberOfPairs).onTapGesture {
+                withAnimation(.linear(duration : 0.3)) {
                 viewModel.shoose(card: card)
+                }
             }
             .padding(6)
         }
         .padding()
         .foregroundColor(Color.orange)
+            Button(action: {
+                withAnimation(.easeIn(duration : 0.75)) {
+                self.viewModel.resetGame()
+                }
+            }, label: {
+                Text("New Game")
+            })
+        }
     }
 }
 
@@ -46,7 +57,10 @@ struct CardView : View {
             ZStack {
             Pie(startAngle: Angle.degrees(-90), endAngle: Angle.degrees(110-90), clockwise : true).padding(5).opacity(0.4)
             Text(card.content).font(Font.system(size: fontSize(for: size)))
+                .rotationEffect(Angle.degrees(card.isMatched ? 360 : 0))
+                .animation(card.isMatched ? Animation.linear(duration: 1).repeatForever(autoreverses: false) : .default)
         }.cardify(isFaceUp : card.isFaceUp)
+            .transition(AnyTransition.scale)
         }
     }
     
