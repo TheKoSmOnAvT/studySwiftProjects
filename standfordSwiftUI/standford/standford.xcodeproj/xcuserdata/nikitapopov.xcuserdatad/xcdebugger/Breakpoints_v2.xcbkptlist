@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "254BB2D6-4DAE-4DC1-8E1B-48EC037E75E3"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "31B57F10-2D50-4DF3-BE61-D72A933D8D99"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "standford/GridLayout.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "init(itemCount:nearAspectRatio:in:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "31B57F10-2D50-4DF3-BE61-D72A933D8D99 - 2eae14376105b36"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of standford.GridLayout.init(itemCount: Swift.Int, nearAspectRatio: Swift.Double, in: __C.CGSize) -&gt; standford.GridLayout"
+                  moduleName = "standford"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nikitapopov/Desktop/coding/studySwift/standfordSwiftUI/standford/standford/GridLayout.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  uuid = "31B57F10-2D50-4DF3-BE61-D72A933D8D99 - 3134fbcf00fbffcd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "standford.GridLayout.init(itemCount: Swift.Int, nearAspectRatio: Swift.Double, in: __C.CGSize) -&gt; standford.GridLayout"
+                  moduleName = "standford"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nikitapopov/Desktop/coding/studySwift/standfordSwiftUI/standford/standford/GridLayout.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "365">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "226DBAF3-A47F-4F0C-B436-C390011A1C28"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "standford/GridLayout.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "init(itemCount:nearAspectRatio:in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
