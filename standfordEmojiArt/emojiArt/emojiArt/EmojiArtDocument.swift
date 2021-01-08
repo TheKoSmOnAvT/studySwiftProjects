@@ -8,7 +8,20 @@
 import SwiftUI
 import Combine
 
-class EmojiArtDocument  : ObservableObject {
+class EmojiArtDocument  : ObservableObject, Hashable, Identifiable {
+    static func == (lhs: EmojiArtDocument, rhs: EmojiArtDocument) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    
+    let id : UUID
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    @Published var steadyStatePanOffSet : CGSize = .zero
+    @Published var steadyStateZoomScale : CGFloat =  1.0
+    
     static let palette : String = "👨‍🚀🚀👩‍💻🧛‍♂️👽🤖🏀🥎🏉🚑"
 
     @Published private var emojiArt : EmojiArt
@@ -16,7 +29,6 @@ class EmojiArtDocument  : ObservableObject {
     @Published private(set) var backgroundImgage :  UIImage?
     var emojis  : [EmojiArt.Emoji] { emojiArt.emojis}
     
-    private static let unitled = "EmojiArt.Untitled"
     private var autosaveCabcellable  : AnyCancellable?
     
     var backgroundURl :  URL? {
@@ -30,11 +42,13 @@ class EmojiArtDocument  : ObservableObject {
     }
     
     
-    init(){
-        emojiArt = EmojiArt(json: UserDefaults.standard.data(forKey: EmojiArtDocument.unitled)) ?? EmojiArt()
-        autosaveCabcellable =  $emojiArt.sink { emojiArt in
+    init(id : UUID? = nil){
+        self.id = id ?? UUID()
+        let defaultKey = "EmojiArtDocument-\(self.id)"
+        emojiArt = EmojiArt(json: UserDefaults.standard.data(forKey: defaultKey)) ?? EmojiArt()
+        autosaveCabcellable = $emojiArt.sink { emojiArt in
             print("json \(emojiArt.json?.utf8  ?? "nil" )")
-            UserDefaults.standard.set(emojiArt.json ,forKey: EmojiArtDocument.unitled)
+            UserDefaults.standard.set(emojiArt.json ,forKey: defaultKey)
         }
         fetchBackgroundImageData()
     }
