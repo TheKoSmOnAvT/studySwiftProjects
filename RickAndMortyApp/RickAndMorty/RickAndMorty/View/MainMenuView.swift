@@ -9,12 +9,12 @@ import SwiftUI
 
    struct MainMenuView: View {
     @ObservedObject var mainMenu = MainMenuViewModel()
-    @State private var editMode : EditMode = .inactive
+    
     var body: some View {
         NavigationView {
             List {
                 ForEach(mainMenu.objectsURL){ object in
-                    NavigationLink( destination: ObjectView(objectModel: ObjectViewModel())) {
+                    NavigationLink( destination: ObjectView(objectModel: ObjectViewModel(mainMenuObject: object))) {
                             Text(object.title ?? "")
                         }
                 }

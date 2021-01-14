@@ -14,6 +14,8 @@
 		3845D74E25AB1B9000FA6284 /* MainMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3845D74D25AB1B9000FA6284 /* MainMenuViewModel.swift */; };
 		385DF19E25AB2EA800CA51C3 /* ObjectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DF19D25AB2EA800CA51C3 /* ObjectViewModel.swift */; };
 		385DF1A125AB2F2A00CA51C3 /* CharaterRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385DF1A025AB2F2A00CA51C3 /* CharaterRequestModel.swift */; };
+		386786FE25B0B17900CAFB5F /* CharacterRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386786FD25B0B17900CAFB5F /* CharacterRowView.swift */; };
+		3867870225B0B36500CAFB5F /* UIImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3867870125B0B36500CAFB5F /* UIImageLoader.swift */; };
 		3888E61125AB1F4A0002D1ED /* MainMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3888E61025AB1F4A0002D1ED /* MainMenuModel.swift */; };
 		3888E61425AB25720002D1ED /* ObjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3888E61325AB25720002D1ED /* ObjectView.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +30,8 @@
 		3845D74D25AB1B9000FA6284 /* MainMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewModel.swift; sourceTree = "<group>"; };
 		385DF19D25AB2EA800CA51C3 /* ObjectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectViewModel.swift; sourceTree = "<group>"; };
 		385DF1A025AB2F2A00CA51C3 /* CharaterRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharaterRequestModel.swift; sourceTree = "<group>"; };
+		386786FD25B0B17900CAFB5F /* CharacterRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterRowView.swift; sourceTree = "<group>"; };
+		3867870125B0B36500CAFB5F /* UIImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageLoader.swift; sourceTree = "<group>"; };
 		3888E61025AB1F4A0002D1ED /* MainMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuModel.swift; sourceTree = "<group>"; };
 		3888E61325AB25720002D1ED /* ObjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,6 +66,7 @@
 		3845D73825AB0F6600FA6284 /* RickAndMorty */ = {
 			isa = PBXGroup;
 			children = (
+				3867870025B0B2DF00CAFB5F /* Services */,
 				3888E60F25AB1F3B0002D1ED /* Models */,
 				3845D74B25AB1B6200FA6284 /* ModelView */,
 				3845D74A25AB1B5900FA6284 /* View */,
@@ -84,6 +89,7 @@
 		3845D74A25AB1B5900FA6284 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				386786FC25B0B14900CAFB5F /* SubView */,
 				3845D73B25AB0F6600FA6284 /* MainMenuView.swift */,
 				3888E61325AB25720002D1ED /* ObjectView.swift */,
 			);
@@ -97,6 +103,22 @@
 				385DF19D25AB2EA800CA51C3 /* ObjectViewModel.swift */,
 			);
 			path = ModelView;
+			sourceTree = "<group>";
+		};
+		386786FC25B0B14900CAFB5F /* SubView */ = {
+			isa = PBXGroup;
+			children = (
+				386786FD25B0B17900CAFB5F /* CharacterRowView.swift */,
+			);
+			path = SubView;
+			sourceTree = "<group>";
+		};
+		3867870025B0B2DF00CAFB5F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3867870125B0B36500CAFB5F /* UIImageLoader.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		3888E60F25AB1F3B0002D1ED /* Models */ = {
@@ -178,7 +200,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3845D73C25AB0F6600FA6284 /* MainMenuView.swift in Sources */,
+				386786FE25B0B17900CAFB5F /* CharacterRowView.swift in Sources */,
 				3888E61125AB1F4A0002D1ED /* MainMenuModel.swift in Sources */,
+				3867870225B0B36500CAFB5F /* UIImageLoader.swift in Sources */,
 				3888E61425AB25720002D1ED /* ObjectView.swift in Sources */,
 				385DF19E25AB2EA800CA51C3 /* ObjectViewModel.swift in Sources */,
 				3845D73A25AB0F6600FA6284 /* RickAndMortyApp.swift in Sources */,

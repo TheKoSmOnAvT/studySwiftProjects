@@ -10,13 +10,21 @@ import SwiftUI
 struct ObjectView: View {
     @ObservedObject var objectModel : ObjectViewModel
     var body: some View {
-        VStack{
-            Group {
-                Text(objectModel.character?.info?.next ?? "123" )
-                Text(objectModel.character?.info?.prev ?? "123")
+        VStack {
+            if(objectModel.character != nil) {
+                List {
+                    ForEach(objectModel.character!.results){ result in
+                        //NavigationLink( destination: Text("character info there")) {
+                            //Text("123")
+                        CharacterRowView(result: result)
+                        //}
+                    }
+                }
+            } else {
+                Text("empty url")
             }
         }.onAppear {
-            self.objectModel.fetchCharacters()
+            self.objectModel.fetchData()
         }
     }
 }
