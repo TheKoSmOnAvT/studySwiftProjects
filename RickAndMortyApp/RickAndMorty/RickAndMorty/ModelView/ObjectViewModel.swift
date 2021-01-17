@@ -48,7 +48,6 @@ public class ObjectViewModel : ObservableObject {
     public func convertCharacter(data : Data) -> Void {
         DispatchQueue.main.async(qos : .background){
             let decoder = JSONDecoder()
-            print("1234")
             if let json = try? decoder.decode(CharaterRequestModel.self, from: data){
                 self.character =  json
             }

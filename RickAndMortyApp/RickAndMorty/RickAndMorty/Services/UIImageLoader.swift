@@ -10,12 +10,12 @@ import Combine
 import Foundation
 
 public class UIImageLoader : ObservableObject {
-    @Published var image : UIImage?
+    @Published var image : UIImage? = UIImage(systemName: "person.fill.questionmark" )
     
     private var fetchImageCancellaable : AnyCancellable?
 
     public func fetchImage(url : String) -> Void {
-        image = nil
+        image = UIImage(systemName: "person.fill.questionmark" )
         if let url = URL(string: url) {
             fetchImageCancellaable = URLSession.shared.dataTaskPublisher(for: url)
                 .map{data, urlResponse in  UIImage(data: data)  }

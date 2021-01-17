@@ -12,19 +12,15 @@ import SwiftUI
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(mainMenu.objectsURL){ object in
+            List(mainMenu.objectsURL){ object in
                     NavigationLink( destination: ObjectView(objectModel: ObjectViewModel(mainMenuObject: object))) {
                             Text(object.title ?? "")
                         }
-                }
-            }
-            .navigationBarTitle("Main Menu")
+            }.navigationBarTitle("Main Menu", displayMode: .inline)
         }
-        
     }
+   }
     
-}
 
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {

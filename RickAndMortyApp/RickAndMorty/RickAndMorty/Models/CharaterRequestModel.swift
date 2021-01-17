@@ -39,3 +39,15 @@ struct Location: Codable {
     let name: String
     let url: String
 }
+
+extension Result {
+    var episodesURLToInt : [Int] {
+        [1,2,3]
+    }
+    var createdString: String {
+        let formatter = DateFormatter()
+        let created: Date? = formatter.date(from: self.created)
+        formatter.dateFormat = "dd-MMM-yyyy"
+        return "formatter.string(from: created )"
+    }
+}

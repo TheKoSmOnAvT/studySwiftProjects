@@ -10,19 +10,16 @@ import SwiftUI
 struct ObjectView: View {
     @ObservedObject var objectModel : ObjectViewModel
     var body: some View {
-        VStack {
-            if(objectModel.character != nil) {
-                List {
-                    ForEach(objectModel.character!.results){ result in
-                        //NavigationLink( destination: Text("character info there")) {
-                            //Text("123")
-                        CharacterRowView(result: result)
-                        //}
+        VStack{
+                if(objectModel.character != nil) {
+                    List(objectModel.character!.results) { result in
+                        NavigationLink(destination: CharcterView(character: result) ){
+                            CharacterRowView(result: result).navigationBarTitle("Characters", displayMode: .inline)
+                        }
                     }
+                } else {
+                    Text("empty url")
                 }
-            } else {
-                Text("empty url")
-            }
         }.onAppear {
             self.objectModel.fetchData()
         }
