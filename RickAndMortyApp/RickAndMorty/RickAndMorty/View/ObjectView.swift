@@ -15,6 +15,12 @@ struct ObjectView: View {
                     List(objectModel.character!.results) { result in
                         NavigationLink(destination: CharcterView(character: result) ){
                             CharacterRowView(result: result).navigationBarTitle("Characters", displayMode: .inline)
+                                .onAppear{
+                                    print(result.id)
+                                    if(self.objectModel.checkIndexCharacter(resultId: result.id)) {
+                                        
+                                    }
+                            }
                         }
                     }
                 } else {
