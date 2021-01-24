@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CharcterView: View {
-    var character : Result
+    var character : ResultCharaterModel
     @ObservedObject var imageLoader = UIImageLoader()
     var body: some View {
         ScrollView(.vertical) {
@@ -17,13 +17,13 @@ struct CharcterView: View {
                 .clipShape(Circle())
                 .overlay(Circle().stroke(Color.gray, lineWidth: 4))
                 .padding()
-            CharacterHorizontalTextView(title: "Name:", data: character.name)
-            CharacterHorizontalTextView(title: "Gender:", data: character.gender , grayBackground: true)
-            CharacterHorizontalTextView(title: "Created:", data: character.created)
-            CharacterHorizontalTextView(title: "Species:", data: character.species, grayBackground: true)
-            CharacterHorizontalTextView(title: "Status:", data: character.status)
-            CharacterHorizontalTextView(title: "Type:", data: character.type, grayBackground: true)
-            CharacterHorizontalTextView(title: "Location:", data: character.location.name) // TO DO: - button to view location
+            HorizontalTextView(title: "Name:", data: character.name)
+            HorizontalTextView(title: "Gender:", data: character.gender , grayBackground: true)
+            HorizontalTextView(title: "Created:", data: character.created)
+            HorizontalTextView(title: "Species:", data: character.species, grayBackground: true)
+            HorizontalTextView(title: "Status:", data: character.status)
+            HorizontalTextView(title: "Type:", data: character.type, grayBackground: true)
+            HorizontalTextView(title: "Location:", data: character.location.name) // TO DO: - button to view location
              // TO DO: - button to view location
             HStack(alignment: .center) {
                 ForEach(character.episodesURLToInt.map{ String($0)}, id: \.self) { episode in

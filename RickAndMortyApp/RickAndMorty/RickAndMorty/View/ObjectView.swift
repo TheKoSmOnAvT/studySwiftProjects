@@ -16,24 +16,26 @@ struct ObjectView: View {
                         NavigationLink(destination: CharcterView(character: result) ){
                             CharacterRowView(result: result).navigationBarTitle("Characters", displayMode: .inline)
                                 .onAppear{
-                                    print(result.id)
-                                    if(self.objectModel.checkIndexCharacter(resultId: result.id)) {
-                                        
-                                    }
+                                    self.objectModel.checkCharacterId(resultId: result.id)
                             }
                         }
                     }
+                } else if (objectModel.location != nil){
+                    List(objectModel.location!.results) { result in
+                        NavigationLink(destination: LocationView(location: result)) {
+                            Text(result.name).navigationBarTitle("Locations", displayMode: .inline)
+                                .onAppear{
+                                    self.objectModel.checkLocationId(resultId: result.id)
+                                }
+                        }
+                    }
                 } else {
-                    Text("empty url")
+                    // TO DO: custom animated logo loading
+                    Text("Loading...")
+                    ProgressView()
                 }
         }.onAppear {
             self.objectModel.fetchData()
         }
     }
 }
-
-//struct ObjectView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ObjectView(ObjectViewModel())
-//    }
-//}

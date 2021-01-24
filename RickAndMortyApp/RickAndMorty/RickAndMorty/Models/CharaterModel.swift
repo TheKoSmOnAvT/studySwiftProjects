@@ -7,20 +7,20 @@
 
 import Foundation
 
-struct CharaterRequestModel : Codable {
-    var info: Info
-    var results: [Result]
+struct CharaterModel : Codable {
+    var info: InfoCharaterModel
+    var results: [ResultCharaterModel]
 }
 
 // MARK: - Info
-struct Info: Codable {
+struct InfoCharaterModel: Codable {
     var count, pages: Int
     var next: String?
     var prev: String?
 }
 
 // MARK: - Result
-struct Result: Codable, Identifiable {
+struct ResultCharaterModel: Codable, Identifiable {
     var id: Int
     var name: String
     var status: String
@@ -40,13 +40,13 @@ struct Location: Codable {
     var url: String
 }
 
-extension Result {
+extension ResultCharaterModel {
     var episodesURLToInt : [Int] {
         [1,2,3]
     }
     var createdString: String {
         let formatter = DateFormatter()
-        let created: Date? = formatter.date(from: self.created)
+        let _: Date? = formatter.date(from: self.created)
         formatter.dateFormat = "dd-MMM-yyyy"
         return "formatter.string(from: created )"
     }

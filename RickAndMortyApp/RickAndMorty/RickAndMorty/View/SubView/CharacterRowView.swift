@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CharacterRowView: View {
     @State private var sizeImage : CGFloat = 100
-    var result : Result
+    var result : ResultCharaterModel
     
     @ObservedObject var imageLoader = UIImageLoader()
     var body: some View {

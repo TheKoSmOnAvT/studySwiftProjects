@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CharacterHorizontalTextView: View {
+struct HorizontalTextView: View {
     var title : String
     var data : String
     var grayBackground : Bool = false
@@ -29,6 +29,6 @@ struct CharacterHorizontalTextView: View {
 
 struct CharacterHorizontalTextView_Previews: PreviewProvider {
     static var previews: some View {
-        CharacterHorizontalTextView(title: "Name",data : "Rick")
+        HorizontalTextView(title: "Name",data : "Rick")
     }
 }
