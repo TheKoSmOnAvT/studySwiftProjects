@@ -8,23 +8,26 @@
 import Foundation
 
 struct EpisodeModel: Codable {
-    let info: InfoEpisodeModel
-    let results: [ResultEpisodeModel]
+    var info: InfoEpisodeModel
+    var results: [ResultEpisodeModel]
 }
 
 // MARK: - Info
 struct InfoEpisodeModel: Codable {
-    let count, pages: Int
-    let next: String?
-    let prev: String?
+    var count : Int?
+    var pages  : Int?
+    var next : String?
+    var prev  : String?
 }
 
 // MARK: - Result
-struct ResultEpisodeModel: Codable {
-    let id: Int
-    let name, airDate, episode: String
-    let characters: [String]
-    let url: String
-    let created: String
+struct ResultEpisodeModel: Codable, Identifiable {
+    var id: Int
+    var name : String?
+    var airDate : String?
+    var episode: String?
+    var characters: [String?]
+    var url: String?
+    var created: String?
 }
 

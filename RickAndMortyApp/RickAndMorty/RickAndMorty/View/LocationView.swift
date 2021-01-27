@@ -21,10 +21,18 @@ struct LocationView: View {
                 HorizontalTextView(title: "Type: ", data: self.location.type)
                 HorizontalTextView(title: "Dimension: ", data: self.location.dimension, grayBackground : true)
                 HorizontalTextView(title: "Created: ", data: self.location.created ?? "unknow")
-                ForEach(self.location.residents.map{ String($0)}, id: \.self){ resident in
-                    //TO DO: character View
-                    Text(resident)
+                
+                HStack(alignment: .center) {
+                    Text("Residents").font(.system(.title2))
+                        .bold()
+                        .padding()
                 }
+                
+                ForEach(self.location.residents.map{ String($0)}, id: \.self) { resident in
+                        NavigationLink(destination: CharcterView(characterLoader: CharacterLoader(url: resident)))  {
+                            CharacterRowView(characterLoader: CharacterLoader(url: resident))
+                        }
+                    }
                 Spacer()
             }
         }

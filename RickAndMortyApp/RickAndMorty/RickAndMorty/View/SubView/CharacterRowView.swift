@@ -9,20 +9,38 @@ import SwiftUI
 
 struct CharacterRowView: View {
     @State private var sizeImage : CGFloat = 100
-    var result : ResultCharaterModel
+    var result : ResultCharaterModel?
     
+    @ObservedObject var characterLoader = CharacterLoader()
     @ObservedObject var imageLoader = UIImageLoader()
+    
     var body: some View {
-        HStack{
-            Image( uiImage: self.imageLoader.image!).resizable().frame(width: self.sizeImage, height: self.sizeImage)
-                .clipShape(Circle())
-                .overlay(Circle().stroke(Color.black, lineWidth: roundWidthLine))
-                .padding()
-            Text(self.result.name).font(.system(size: textSize))
-                .padding()
-            Spacer()
-        }.onAppear {
-            self.imageLoader.fetchImage(url: self.result.image)
+        if (characterLoader.character != nil) {
+            HStack{
+                Image( uiImage: self.imageLoader.image!).resizable().frame(width: self.sizeImage, height: self.sizeImage)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.black, lineWidth: roundWidthLine))
+                    .padding()
+                Text(self.characterLoader.character!.name).font(.system(size: textSize))
+                    .padding()
+                Spacer()
+            }.onAppear {
+                self.imageLoader.fetchImage(url: self.characterLoader.character!.image)
+            }
+        } else if (result != nil) {
+            HStack{
+                Image( uiImage: self.imageLoader.image!).resizable().frame(width: self.sizeImage, height: self.sizeImage)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(Color.black, lineWidth: roundWidthLine))
+                    .padding()
+                Text(self.result!.name).font(.system(size: textSize))
+                    .padding()
+                Spacer()
+            }.onAppear {
+                self.imageLoader.fetchImage(url: self.result!.image)
+            }
+        } else {
+            LoaderView()
         }
     }
     //MARK: - interface const

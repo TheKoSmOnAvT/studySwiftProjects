@@ -20,13 +20,3 @@ import SwiftUI
         }
     }
    }
-    
-
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainMenuView()
-//    }
-//}
-//.navigationBarItems(
-//        leading: Button("Refresh", action: {self.mainMenu.fetchURL()})
-//    )

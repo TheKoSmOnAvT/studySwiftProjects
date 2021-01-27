@@ -20,7 +20,7 @@ struct ObjectView: View {
                             }
                         }
                     }
-                } else if (objectModel.location != nil){
+                } else if (objectModel.location != nil) {
                     List(objectModel.location!.results) { result in
                         NavigationLink(destination: LocationView(location: result)) {
                             Text(result.name).navigationBarTitle("Locations", displayMode: .inline)
@@ -29,10 +29,17 @@ struct ObjectView: View {
                                 }
                         }
                     }
+                } else if  (objectModel.episode != nil)  {
+                    List(objectModel.episode!.results)  { result in 
+                        NavigationLink(destination: EpisodeView(episode :  result))  {
+                            Text(result.name  ??  "empty").navigationBarTitle("Episodes",  displayMode:  .inline)
+                                .onAppear  {
+                                    self.objectModel.checkEpisodeId(resultId: result.id)
+                                }
+                        }
+                    }
                 } else {
-                    // TO DO: custom animated logo loading
-                    Text("Loading...")
-                    ProgressView()
+                    LoaderView()
                 }
         }.onAppear {
             self.objectModel.fetchData()

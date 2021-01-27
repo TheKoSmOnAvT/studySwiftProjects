@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		383A7B4425BD64B600A4FEC2 /* EpisodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383A7B4325BD64B600A4FEC2 /* EpisodeModel.swift */; };
+		383CE1D025C133CF00385D64 /* EpisodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CE1CF25C133CF00385D64 /* EpisodeView.swift */; };
+		383CE1D425C1380900385D64 /* CharacterLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CE1D325C1380900385D64 /* CharacterLoader.swift */; };
+		383CE1D725C13F9800385D64 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383CE1D625C13F9800385D64 /* LoaderView.swift */; };
 		3845D73A25AB0F6600FA6284 /* RickAndMortyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3845D73925AB0F6600FA6284 /* RickAndMortyApp.swift */; };
 		3845D73C25AB0F6600FA6284 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3845D73B25AB0F6600FA6284 /* MainMenuView.swift */; };
 		3845D73E25AB0F6800FA6284 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3845D73D25AB0F6800FA6284 /* Assets.xcassets */; };
@@ -27,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		383A7B4325BD64B600A4FEC2 /* EpisodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeModel.swift; sourceTree = "<group>"; };
+		383CE1CF25C133CF00385D64 /* EpisodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeView.swift; sourceTree = "<group>"; };
+		383CE1D325C1380900385D64 /* CharacterLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterLoader.swift; sourceTree = "<group>"; };
+		383CE1D625C13F9800385D64 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		3845D73625AB0F6600FA6284 /* RickAndMorty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RickAndMorty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3845D73925AB0F6600FA6284 /* RickAndMortyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RickAndMortyApp.swift; sourceTree = "<group>"; };
 		3845D73B25AB0F6600FA6284 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 				38B8224E25BD5B1500FA708E /* LocationView.swift */,
 				3888E61325AB25720002D1ED /* ObjectView.swift */,
 				384D75B725B1BF2B0031E714 /* CharcterView.swift */,
+				383CE1CF25C133CF00385D64 /* EpisodeView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +129,7 @@
 			children = (
 				386786FD25B0B17900CAFB5F /* CharacterRowView.swift */,
 				388DBE4125B4513900683B43 /* HorizontalTextView.swift */,
+				383CE1D625C13F9800385D64 /* LoaderView.swift */,
 			);
 			path = SubView;
 			sourceTree = "<group>";
@@ -130,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				3867870125B0B36500CAFB5F /* UIImageLoader.swift */,
+				383CE1D325C1380900385D64 /* CharacterLoader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -218,6 +227,8 @@
 				3845D73C25AB0F6600FA6284 /* MainMenuView.swift in Sources */,
 				386786FE25B0B17900CAFB5F /* CharacterRowView.swift in Sources */,
 				384D75B825B1BF2B0031E714 /* CharcterView.swift in Sources */,
+				383CE1D425C1380900385D64 /* CharacterLoader.swift in Sources */,
+				383CE1D025C133CF00385D64 /* EpisodeView.swift in Sources */,
 				3888E61125AB1F4A0002D1ED /* MainMenuModel.swift in Sources */,
 				3867870225B0B36500CAFB5F /* UIImageLoader.swift in Sources */,
 				3888E61425AB25720002D1ED /* ObjectView.swift in Sources */,
@@ -226,6 +237,7 @@
 				385DF1A125AB2F2A00CA51C3 /* CharaterModel.swift in Sources */,
 				388DBE4225B4513900683B43 /* HorizontalTextView.swift in Sources */,
 				383A7B4425BD64B600A4FEC2 /* EpisodeModel.swift in Sources */,
+				383CE1D725C13F9800385D64 /* LoaderView.swift in Sources */,
 				38CED66525BD4E56009FF14E /* LocationModel.swift in Sources */,
 				3845D74E25AB1B9000FA6284 /* MainMenuViewModel.swift in Sources */,
 			);

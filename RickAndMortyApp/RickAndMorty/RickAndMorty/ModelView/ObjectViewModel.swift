@@ -12,6 +12,7 @@ public class ObjectViewModel : ObservableObject {
     
     @Published var character : CharaterModel?
     @Published var location : LocationModel?
+    @Published var episode : EpisodeModel?
     
     private var object : MainMenuModel
     private var page = 1
@@ -24,7 +25,7 @@ public class ObjectViewModel : ObservableObject {
         let url =  "\(object.url!)/?page=\(page)"
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { data, res, error in
-                if let data = data {
+                if let data = data, data !=  nil,  error  ==  nil {
                     self.convertObjectToModel(data: data)
                 }
             }.resume()
@@ -41,7 +42,7 @@ public class ObjectViewModel : ObservableObject {
                 case "locations":
                     convertLocations(data: data)
                 case "episodes":
-                        return
+                    convertEpisodes(data: data)
                 default:
                     return
             }
@@ -118,6 +119,43 @@ public class ObjectViewModel : ObservableObject {
         self.location?.info = newModel.info
         for newCharacter  in newModel.results  {
             self.location?.results.append(newCharacter)
+        }
+    }
+    
+    //MARK: -  Episode
+    
+    private var preLastEpisodeId : Int {
+        let prelast = self.episode?.results[(self.episode?.results.count)! - 1]
+        return prelast?.id ??  0
+    }
+    
+    public func checkEpisodeId(resultId: Int ) -> Void {
+        if(preLastEpisodeId == resultId ) {
+            self.page += 1
+            fetchData(page: page)
+        }
+    }
+    
+    private func convertEpisodes(data : Data) -> Void {
+        DispatchQueue.main.async(qos : .background){
+            let decoder = JSONDecoder()
+            if let json = try? decoder.decode(EpisodeModel.self, from: data){
+                if self.episode == nil  {
+                    self.episode = json
+                } else {
+                    self.addEpisodes(json)
+                    }
+            }
+            else  {
+                print("error json")
+            }
+        }
+    }
+    
+    private func addEpisodes(_  newModel  :  EpisodeModel) -> Void  {
+        self.episode?.info = newModel.info
+        for newEpisode  in newModel.results  {
+            self.episode?.results.append(newEpisode)
         }
     }
     
