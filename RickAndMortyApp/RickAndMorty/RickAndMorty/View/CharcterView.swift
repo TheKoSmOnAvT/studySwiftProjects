@@ -13,29 +13,37 @@ struct CharcterView: View {
     @ObservedObject var characterLoader = CharacterLoader()
     
     var body: some View {
-        if(characterLoader.character != nil) {
+        if(self.characterLoader.character != nil) {
             ScrollView(.vertical) {
             VStack {
                 Image(uiImage:  self.imageLoader.image!)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.gray, lineWidth: 4))
                     .padding()
-                HorizontalTextView(title: "Name:", data: characterLoader.character!.name)
-                HorizontalTextView(title: "Gender:", data: characterLoader.character!.gender , grayBackground: true)
-                HorizontalTextView(title: "Created:", data: characterLoader.character!.created)
-                HorizontalTextView(title: "Species:", data: characterLoader.character!.species, grayBackground: true)
-                HorizontalTextView(title: "Status:", data: characterLoader.character!.status)
-                HorizontalTextView(title: "Type:", data: characterLoader.character!.type, grayBackground: true)
-                HorizontalTextView(title: "Location:", data: characterLoader.character!.location.name)
+                HorizontalTextView(title: "Name:", data: (self.characterLoader.character!.name ??  "unknow"))
+                HorizontalTextView(title: "Gender:", data: self.characterLoader.character!.gender ?? "unknow" , grayBackground: true)
+                HorizontalTextView(title: "Created:", data: self.characterLoader.character!.created ?? "unknow")
+                HorizontalTextView(title: "Species:", data: self.characterLoader.character!.species ?? "unknow", grayBackground: true)
+                HorizontalTextView(title: "Status:", data: self.characterLoader.character!.status ?? "unknow")
+                HorizontalTextView(title: "Type:", data: self.characterLoader.character!.type ?? "unknow", grayBackground: true)
+                HorizontalTextView(title: "Location:", data: self.characterLoader.character!.location?.name ?? "unknow")
                 
                 HStack(alignment: .center) {
-                    ForEach(characterLoader.character!.episodesURLToInt.map{ String($0)}, id: \.self) { episode in
-                            Text(episode).padding()
+                    Text("Episodes").font(.system(.title2))
+                        .bold()
+                        .padding()
+                }
+                VStack(alignment: .leading){
+                    ForEach(self.characterLoader.character!.episode.map{ String($0!)}, id: \.self) { episode in
+                        NavigationLink(destination: EpisodeView(episodeLoader: EpisodeLoader(url: episode)))  {
+                            EpisodeRowView(episodeLoader: EpisodeLoader(url: episode))
+                        }
                     }
                 }
-                }.navigationBarTitle(characterLoader.character!.name)
+                }
+                .navigationBarTitle(self.characterLoader.character!.name ?? "unknow")
                 .onAppear {
-                    self.imageLoader.fetchImage(url: self.characterLoader.character!.image)
+                    self.imageLoader.fetchImage(url: self.characterLoader.character!.image ?? "")
                 }
             }
         } else if ( self.character != nil) {
@@ -45,22 +53,29 @@ struct CharcterView: View {
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.gray, lineWidth: 4))
                     .padding()
-                HorizontalTextView(title: "Name:", data: character!.name)
-                HorizontalTextView(title: "Gender:", data: character!.gender , grayBackground: true)
-                HorizontalTextView(title: "Created:", data: character!.created)
-                HorizontalTextView(title: "Species:", data: character!.species, grayBackground: true)
-                HorizontalTextView(title: "Status:", data: character!.status)
-                HorizontalTextView(title: "Type:", data: character!.type, grayBackground: true)
-                HorizontalTextView(title: "Location:", data: character!.location.name) // TO DO: - button to view location
-                 // TO DO: - button to view location
+                HorizontalTextView(title: "Name:", data: self.character!.name ?? "unknow")
+                HorizontalTextView(title: "Gender:", data: self.character!.gender ?? "unknow", grayBackground: true)
+                HorizontalTextView(title: "Created:", data: self.character!.created ?? "unknow")
+                HorizontalTextView(title: "Species:", data: self.character!.species ?? "unknow", grayBackground: true)
+                HorizontalTextView(title: "Status:", data: self.character!.status ?? "unknow")
+                HorizontalTextView(title: "Type:", data: self.character!.type ?? "unknow", grayBackground: true)
+                HorizontalTextView(title: "Location:", data: self.character!.location?.name ?? "unknow")
+               
                 HStack(alignment: .center) {
-                    ForEach(character!.episodesURLToInt.map{ String($0)}, id: \.self) { episode in
-                            Text(episode).padding()
+                    Text("Episodes").font(.system(.title2))
+                        .bold()
+                        .padding()
+                }
+                VStack(alignment: .leading){
+                    ForEach(self.character!.episode.map{ String($0!)}, id: \.self) { episode in
+                        NavigationLink(destination: EpisodeView(episodeLoader: EpisodeLoader(url: episode)))  {
+                            EpisodeRowView(episodeLoader: EpisodeLoader(url: episode))
+                        }
                     }
                 }
-                }.navigationBarTitle(character!.name)
+            }.navigationBarTitle(self.character!.name ?? "unknow")
                 .onAppear {
-                    self.imageLoader.fetchImage(url: self.character!.image)
+                    self.imageLoader.fetchImage(url: self.character!.image ?? "")
                 }
             }
         } else {

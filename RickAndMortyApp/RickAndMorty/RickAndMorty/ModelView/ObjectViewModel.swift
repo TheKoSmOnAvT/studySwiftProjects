@@ -25,7 +25,7 @@ public class ObjectViewModel : ObservableObject {
         let url =  "\(object.url!)/?page=\(page)"
         if let url = URL(string: url) {
             URLSession.shared.dataTask(with: url) { data, res, error in
-                if let data = data, data !=  nil,  error  ==  nil {
+                if let data = data, error  ==  nil {
                     self.convertObjectToModel(data: data)
                 }
             }.resume()

@@ -14,7 +14,8 @@ struct CharaterModel : Codable {
 
 // MARK: - Info
 struct InfoCharaterModel: Codable {
-    var count, pages: Int
+    var count : Int?
+    var pages: Int?
     var next: String?
     var prev: String?
 }
@@ -22,16 +23,16 @@ struct InfoCharaterModel: Codable {
 // MARK: - Result
 struct ResultCharaterModel: Codable, Identifiable {
     var id: Int
-    var name: String
-    var status: String
-    var species: String
-    var type: String
-    var gender: String
-    var origin, location: Location
-    var image: String
-    var episode: [String]
-    var url: String
-    var created: String
+    var name: String?
+    var status: String?
+    var species: String?
+    var type: String?
+    var gender: String?
+    var origin, location: Location?
+    var image: String?
+    var episode: [String?]
+    var url: String?
+    var created: String?
 }
 
 // MARK: - Location
@@ -44,10 +45,10 @@ extension ResultCharaterModel {
     var episodesURLToInt : [Int] {
         [1,2,3]
     }
-    var createdString: String {
-        let formatter = DateFormatter()
-        let _: Date? = formatter.date(from: self.created)
-        formatter.dateFormat = "dd-MMM-yyyy"
-        return "formatter.string(from: created )"
-    }
+//    var createdString: String {
+//        let formatter = DateFormatter()
+//        let _: Date? = formatter.date(from: self.created)
+//        formatter.dateFormat = "dd-MMM-yyyy"
+//        return "formatter.string(from: created )"
+//    }
 }

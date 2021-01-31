@@ -17,15 +17,15 @@ struct CharacterRowView: View {
     var body: some View {
         if (characterLoader.character != nil) {
             HStack{
-                Image( uiImage: self.imageLoader.image!).resizable().frame(width: self.sizeImage, height: self.sizeImage)
+                Image( uiImage: (self.imageLoader.image ??  UIImage(systemName: "person.fill.questionmark"))! ).resizable().frame(width: self.sizeImage, height: self.sizeImage)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.black, lineWidth: roundWidthLine))
                     .padding()
-                Text(self.characterLoader.character!.name).font(.system(size: textSize))
+                Text(self.characterLoader.character!.name  ?? "unknow").font(.system(size: textSize))
                     .padding()
                 Spacer()
             }.onAppear {
-                self.imageLoader.fetchImage(url: self.characterLoader.character!.image)
+                self.imageLoader.fetchImage(url: self.characterLoader.character!.image ?? "")
             }
         } else if (result != nil) {
             HStack{
@@ -33,15 +33,16 @@ struct CharacterRowView: View {
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.black, lineWidth: roundWidthLine))
                     .padding()
-                Text(self.result!.name).font(.system(size: textSize))
+                Text(self.result!.name ?? "unknow").font(.system(size: textSize))
                     .padding()
                 Spacer()
             }.onAppear {
-                self.imageLoader.fetchImage(url: self.result!.image)
+                self.imageLoader.fetchImage(url: self.result!.image ?? "unknow")
             }
-        } else {
-            LoaderView()
         }
+//        else {
+//            LoaderView()
+//        }
     }
     //MARK: - interface const
     @State private var textSize : CGFloat = 20
