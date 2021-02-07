@@ -23,6 +23,7 @@ public class MainMenuViewModel : ObservableObject {
                     DispatchQueue.main.async {
                         let decoder = JSONDecoder()
                         if let json = try? decoder.decode(Dictionary<String,String>.self, from: data){
+                            self.objectsURL = []
                             for item in json {
                                 self.objectsURL.append(MainMenuModel(url: item.value, title: item.key))
                             }

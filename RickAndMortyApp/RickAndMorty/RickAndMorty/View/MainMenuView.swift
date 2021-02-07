@@ -17,6 +17,8 @@ import SwiftUI
                             Text(object.title ?? "")
                         }
             }.navigationBarTitle("Main Menu", displayMode: .inline)
+        }.onAppear  {
+            self.mainMenu.fetchURL()
         }
     }
    }

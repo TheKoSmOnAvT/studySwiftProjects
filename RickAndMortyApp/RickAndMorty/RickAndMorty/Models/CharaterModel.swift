@@ -41,14 +41,4 @@ struct Location: Codable {
     var url: String
 }
 
-extension ResultCharaterModel {
-    var episodesURLToInt : [Int] {
-        [1,2,3]
-    }
-//    var createdString: String {
-//        let formatter = DateFormatter()
-//        let _: Date? = formatter.date(from: self.created)
-//        formatter.dateFormat = "dd-MMM-yyyy"
-//        return "formatter.string(from: created )"
-//    }
-}
+

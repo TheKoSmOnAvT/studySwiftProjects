@@ -11,6 +11,7 @@ struct LocationView: View {
     var location : ResultLocationModel?
     
     var body: some View {
+        if  (self.location != nil) {
             ScrollView(.vertical) {
                 VStack{
                     HStack(alignment: .center) {
@@ -20,7 +21,7 @@ struct LocationView: View {
                     }
                     HorizontalTextView(title: "Type: ", data: self.location!.type)
                     HorizontalTextView(title: "Dimension: ", data: self.location!.dimension, grayBackground : true)
-                    HorizontalTextView(title: "Created: ", data: self.location!.created ?? "unknow")
+                    HorizontalTextView(title: "Created: ", data: self.location!.created?.formatDate  ?? "unknow")
                     
                     HStack(alignment: .center) {
                         Text("Residents").font(.system(.title2))
@@ -35,7 +36,9 @@ struct LocationView: View {
                         }
                 }
             }
-    
+        } else {
+            LoaderView()
+        }
     }
 }
 

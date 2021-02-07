@@ -21,7 +21,7 @@ struct EpisodeView: View {
             }
             HorizontalTextView(title: "Type: ", data: self.episode!.airDate ??  "unknow")
             HorizontalTextView(title: "Dimension: ", data: self.episode!.episode  ??  "unknow", grayBackground : true)
-            HorizontalTextView(title: "Created: ", data: self.episode!.created ?? "unknow")
+                HorizontalTextView(title: "Created: ", data: self.episode!.created?.formatDate ?? "unknow")
                 
             HStack(alignment: .center) {
                 Text("Characters:").font(.system(.title2))
@@ -44,7 +44,7 @@ struct EpisodeView: View {
             }
             HorizontalTextView(title: "Type: ", data: self.episodeLoader.episode!.airDate ??  "unknow")
             HorizontalTextView(title: "Dimension: ", data: self.episodeLoader.episode!.episode  ??  "unknow", grayBackground : true)
-            HorizontalTextView(title: "Created: ", data: self.episodeLoader.episode!.created ?? "unknow")
+                HorizontalTextView(title: "Created: ", data: self.episodeLoader.episode!.created?.formatDate ?? "unknow")
                 
             HStack(alignment: .center) {
                 Text("Characters:").font(.system(.title2))
@@ -59,6 +59,8 @@ struct EpisodeView: View {
                 }
             }
 
+        } else {
+            LoaderView()
         }
         
     }
