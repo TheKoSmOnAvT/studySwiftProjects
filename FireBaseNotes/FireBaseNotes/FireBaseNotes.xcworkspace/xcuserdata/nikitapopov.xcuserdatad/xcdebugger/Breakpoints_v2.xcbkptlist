@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "7783999E-7B53-40E5-B6DE-4050E11F395C"
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6F70EC0D-4D27-403C-9C91-92E4F3D45EE5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FireBaseNotes/ModelView/AccountFireBase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "registation(mail:password:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6F70EC0D-4D27-403C-9C91-92E4F3D45EE5 - 59ee490da941e04f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FireBaseNotes.AccountFireBase.registation(mail: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "FireBaseNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nikitapopov/Desktop/coding/studySwift/FireBaseNotes/FireBaseNotes/FireBaseNotes/ModelView/AccountFireBase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "50">
+               </Location>
+               <Location
+                  uuid = "6F70EC0D-4D27-403C-9C91-92E4F3D45EE5 - 1864babd256fd719"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.FIRDataSnapshot) -&gt; () in FireBaseNotes.AccountFireBase.registation(mail: Swift.String, password: Swift.String) -&gt; ()"
+                  moduleName = "FireBaseNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nikitapopov/Desktop/coding/studySwift/FireBaseNotes/FireBaseNotes/FireBaseNotes/ModelView/AccountFireBase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "136">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

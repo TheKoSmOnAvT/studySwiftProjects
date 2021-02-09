@@ -8,8 +8,27 @@
 import SwiftUI
 
 struct NotecreationView: View {
+    private var noteModelView = NoteModelView()
+    
+    @State private var title : String = ""
+    @State private var text : String = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            NavigationView {
+                Form {
+                    TextField("Title", text: $title)
+                    TextEditor(text: $text)
+                }.navigationTitle("Registration")
+            }
+            Button(action: {
+                noteModelView.appendNote(title: self.title, text: self.text)
+            }, label: {
+                HStack {
+                    Text("Add note").font(.headline)
+                }
+            }).padding()
+            Spacer()
+        }
     }
 }
 

@@ -8,8 +8,25 @@
 import SwiftUI
 
 struct LoginView: View {
+    @State var mail : String = ""
+    @State var password : String = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            NavigationView {
+                Form {
+                    TextField("Mail", text: $mail)
+                    TextField("Password", text: $password)
+                }.navigationTitle("Authorization")
+            }
+            Button(action: {
+                print("123")
+            }, label: {
+                HStack {
+                    Text("Login").font(.headline)
+                }
+            })
+        Spacer()
+        }
     }
 }
 

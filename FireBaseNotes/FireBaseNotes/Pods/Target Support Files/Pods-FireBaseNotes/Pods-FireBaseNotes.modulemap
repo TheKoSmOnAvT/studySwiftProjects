@@ -1,0 +1,6 @@
+framework module Pods_FireBaseNotes {
+  umbrella header "Pods-FireBaseNotes-umbrella.h"
+
+  export *
+  module * { export * }
+}

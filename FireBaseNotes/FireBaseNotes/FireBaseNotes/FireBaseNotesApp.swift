@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct FireBaseNotesApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NotecreationView()
         }
     }
 }
+
