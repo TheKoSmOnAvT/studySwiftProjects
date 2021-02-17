@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct NotecreationView: View {
-    private var noteModelView = NoteModelView()
+    var  fb = FireBase()
     
     @State private var title : String = ""
     @State private var text : String = ""
@@ -21,7 +21,7 @@ struct NotecreationView: View {
                 }.navigationTitle("Registration")
             }
             Button(action: {
-                noteModelView.appendNote(title: self.title, text: self.text)
+                fb.appendNote(title: self.title, text: self.text)
             }, label: {
                 HStack {
                     Text("Add note").font(.headline)

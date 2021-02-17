@@ -10,6 +10,7 @@ import SwiftUI
 struct RegistrationView: View {
     @State var mail : String = ""
     @State var password : String = ""
+    var fb :  FireBase
     var body: some View {
         VStack {
             NavigationView {
@@ -19,7 +20,7 @@ struct RegistrationView: View {
                 }.navigationTitle("Registration")
             }
             Button(action: {
-                print("123")
+                fb.registration(mail: self.mail, password: self.password)
             }, label: {
                 HStack {
                     Text("Create account").font(.headline)
@@ -30,8 +31,8 @@ struct RegistrationView: View {
     }
 }
 
-struct RegistrationView_Previews: PreviewProvider {
-    static var previews: some View {
-        RegistrationView()
-    }
-}
+//struct RegistrationView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        RegistrationView()
+//    }
+//}

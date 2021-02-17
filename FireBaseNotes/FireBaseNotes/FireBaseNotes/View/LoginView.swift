@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State var mail : String = ""
     @State var password : String = ""
+    var fb :  FireBase
     var body: some View {
         VStack {
             NavigationView {
@@ -19,7 +20,7 @@ struct LoginView: View {
                 }.navigationTitle("Authorization")
             }
             Button(action: {
-                print("123")
+                self.fb.login(mail: self.mail, password: self.password)
             }, label: {
                 HStack {
                     Text("Login").font(.headline)
@@ -30,8 +31,8 @@ struct LoginView: View {
     }
 }
 
-struct LoginView_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginView()
-    }
-}
+//struct LoginView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LoginView()
+//    }
+//}
