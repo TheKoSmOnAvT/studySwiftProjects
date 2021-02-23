@@ -12,6 +12,7 @@
 		3821A2EB25D2C75100988955 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A2EA25D2C75100988955 /* LoginView.swift */; };
 		3821A2EE25D2CB7000988955 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A2ED25D2CB7000988955 /* RegistrationView.swift */; };
 		3821A2F125D2CC4D00988955 /* NoteCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A2F025D2CC4D00988955 /* NoteCreationView.swift */; };
+		3834CEF925E5751B0009D65F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3834CEF825E5751B0009D65F /* Enums.swift */; };
 		386E48CC25DD6DF00029A8D2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E48CB25DD6DF00029A8D2 /* Account.swift */; };
 		38F570F325D0147C001140DA /* FireBaseNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F570F225D0147C001140DA /* FireBaseNotesApp.swift */; };
 		38F570F525D0147C001140DA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F570F425D0147C001140DA /* ContentView.swift */; };
@@ -27,6 +28,7 @@
 		3821A2EA25D2C75100988955 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		3821A2ED25D2CB7000988955 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		3821A2F025D2CC4D00988955 /* NoteCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreationView.swift; sourceTree = "<group>"; };
+		3834CEF825E5751B0009D65F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		386E48CB25DD6DF00029A8D2 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		38F570EF25D0147C001140DA /* FireBaseNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireBaseNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F570F225D0147C001140DA /* FireBaseNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseNotesApp.swift; sourceTree = "<group>"; };
@@ -69,6 +71,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3834CEF725E575090009D65F /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				3834CEF825E5751B0009D65F /* Enums.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		386E48CA25DD6DDF0029A8D2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +109,7 @@
 		38F570F125D0147C001140DA /* FireBaseNotes */ = {
 			isa = PBXGroup;
 			children = (
+				3834CEF725E575090009D65F /* Enums */,
 				386E48CA25DD6DDF0029A8D2 /* Models */,
 				3821A2E925D2C73D00988955 /* View */,
 				3821A2E525D2C41F00988955 /* ModelView */,
@@ -255,6 +266,7 @@
 				3821A2EE25D2CB7000988955 /* RegistrationView.swift in Sources */,
 				3821A2EB25D2C75100988955 /* LoginView.swift in Sources */,
 				38F570F325D0147C001140DA /* FireBaseNotesApp.swift in Sources */,
+				3834CEF925E5751B0009D65F /* Enums.swift in Sources */,
 				386E48CC25DD6DF00029A8D2 /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
