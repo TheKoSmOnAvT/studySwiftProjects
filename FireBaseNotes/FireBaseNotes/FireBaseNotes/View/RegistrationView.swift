@@ -10,24 +10,47 @@ import SwiftUI
 struct RegistrationView: View {
     @State var mail : String = ""
     @State var password : String = ""
-    var fb :  FireBase
+    @ObservedObject private var fb :  FireBase = FireBase()
     var body: some View {
-        VStack {
-            NavigationView {
-                Form {
+        VStack(alignment: .center, spacing : 15) {
+            Spacer()
+            Text("Registration")
+                .font(.custom("Helvetica Neue", size: 28))
+                .padding()
+                .background(Color.white)
+                .cornerRadius(20.0)
+                .shadow(radius: 10.0, x: 20, y: 10)
+                .padding()
+            VStack(alignment: .leading, spacing : 15) {
                     TextField("Mail", text: $mail)
-                    TextField("Password", text: $password)
-                }.navigationTitle("Registration")
+                        .font(.headline)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(20.0)
+                        .shadow(radius: 10.0, x: 20, y: 10)
+                        .padding()
+                    SecureField("Password", text: $password)
+                        .font(.headline)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(20.0)
+                        .shadow(radius: 10.0, x: 20, y: 10)
+                        .padding()
             }
             Button(action: {
-                fb.registration(mail: self.mail, password: self.password)
+               _ =  fb.registration(mail: self.mail, password: self.password)
             }, label: {
-                HStack {
-                    Text("Create account").font(.headline)
-                }
+                    Text("Create account")
+                        .font(.headline)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(20.0)
             }).padding()
         Spacer()
         }
+        .background(
+            LinearGradient(gradient: Gradient(colors: [ .white,.red,.white]), startPoint: .top, endPoint: .bottom)
+        ).ignoresSafeArea()
     }
 }
 

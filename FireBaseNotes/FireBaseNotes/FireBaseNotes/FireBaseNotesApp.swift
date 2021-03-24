@@ -12,8 +12,8 @@ import Firebase
 struct FireBaseNotesApp: App {
     var body: some Scene {
         WindowGroup {
-            //RegistrationView(fb: FireBase())
-            LoginView(fb: FireBase())
+            NotecreationView()
+            //LoginView()
         }
     }
 }

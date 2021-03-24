@@ -12,9 +12,10 @@ import var CommonCrypto.CC_MD5_DIGEST_LENGTH
 import func CommonCrypto.CC_MD5
 import typealias CommonCrypto.CC_LONG
 
-public class FireBase {
+public class FireBase : ObservableObject{
     
     var reference: DatabaseReference!
+    @Published var notLoginStatus : Bool = false
     
     init() {
         FirebaseApp.configure()
@@ -23,8 +24,8 @@ public class FireBase {
     
     
     
-    func registration(mail : String, password  : String) ->  String {
-        var result =  ""
+    func registration(mail : String, password  : String) ->  Bool {
+        var result =  false
         self.reference.child("users").child(mail).child("id").observeSingleEvent(of: .value, with: { (snapshot) in
                    if let id = snapshot.value  {
                     if("\(id)" == "<null>") {
@@ -32,7 +33,7 @@ public class FireBase {
                             let hash  =  self.MD5(string: password)
                             let hashString = hash.map { String(format: "%02hhx", $0) }.joined()
                             self.reference.child("users").child(mail).setValue(["id" : id,  "password" : String(hashString)])
-                            result = id
+                            result = true
                         }
                    }
                })
@@ -40,13 +41,27 @@ public class FireBase {
     }
     
     func login(mail : String, password  : String) {
-        let hash  =  MD5(string: password)
+        self.logout()
+        let mailTrim = mail.trimmingCharacters(in: .whitespacesAndNewlines)
+        let passwordTrim = password.trimmingCharacters(in: .whitespacesAndNewlines)
+        let group = DispatchGroup() 
+        if(mailTrim.isEmpty || passwordTrim.isEmpty )  {
+            return
+        }
+        let hash  =  MD5(string: passwordTrim)
         let hashString = hash.map { String(format: "%02hhx", $0) }.joined()
-        self.reference.child("users").child(mail).observeSingleEvent(of: .value, with: { (snapshot) in
+        self.reference.child("users").child(mailTrim).observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.value as? [String : Any] {
                 if let pass = result["password"] as? String, let id = result["id"] as? String  {
                     if (pass  ==  hashString){
+                        group.enter()
+                        print(id);
+                        self.notLoginStatus = false
+                        print(self.notLoginStatus);
                         UserDefaults.standard.setValue(id, forKey: DefaultProfile.authId.rawValue)
+                        group.leave()
+                    } else {
+                        self.notLoginStatus = true
                     }
                }
             }
@@ -55,12 +70,13 @@ public class FireBase {
     
     func logout() {
         UserDefaults.standard.setValue(nil, forKey: DefaultProfile.authId.rawValue)
+        notLoginStatus = true
     }
     
     
-    func appendNote(title : String, text :  String){
+    func appendNote(_  note : NoteFileModel){
         let id = UUID().uuidString
-        self.reference.child("Note").child(id).setValue(["title" : title,  "text" :text])
+        self.reference.child("Note").child(id).setValue(["title" : note.title,  "text" : note.text])
     }
     
     
