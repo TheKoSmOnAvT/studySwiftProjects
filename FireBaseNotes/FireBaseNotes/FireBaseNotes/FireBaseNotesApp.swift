@@ -10,11 +10,20 @@ import Firebase
 
 @main
 struct FireBaseNotesApp: App {
+    private var fb : FireBase = FireBase()
     var body: some Scene {
         WindowGroup {
-            NotecreationView()
-            //LoginView()
+            TabView {
+               Text("тут лист для работы с заметками")
+                 .tabItem {
+                    Image(systemName: "highlighter")
+                    Text("Заметки")
+                  }
+                AccountView(fb: fb).tabItem {
+                    Image(systemName: "person.circle")
+                    Text("Аккаунт")
+                }
+            }
         }
     }
 }
-

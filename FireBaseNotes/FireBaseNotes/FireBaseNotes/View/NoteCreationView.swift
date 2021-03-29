@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct NotecreationView: View {
-    var  fb = FireBase()
-    
+    var fb : FireBase
     @State private var title : String = ""
     @State private var text : String = ""
     public var actionName : String = "Add note"

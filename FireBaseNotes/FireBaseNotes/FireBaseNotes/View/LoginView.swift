@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Binding var showModal: Bool
+    
     @State private var mail : String = ""
     @State private var password : String = ""
-    @ObservedObject private var fb :  FireBase = FireBase()
+    @ObservedObject var fb :  FireBase 
     private let width : CGFloat = 240.0
     var body: some View {
-        VStack(alignment: .center) {
+        VStack(alignment: .center, spacing : 15) {
             Spacer()
             Image("ICON")
                 .resizable()
@@ -56,6 +58,11 @@ struct LoginView: View {
         }.background(
             LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))
+        .onAppear{
+            if(!self.fb.notLoginStatus) {
+                self.showModal.toggle()
+            }
+        }
     }
 }
 

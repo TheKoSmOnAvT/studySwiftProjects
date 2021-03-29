@@ -13,13 +13,24 @@ import func CommonCrypto.CC_MD5
 import typealias CommonCrypto.CC_LONG
 
 public class FireBase : ObservableObject{
-    
     var reference: DatabaseReference!
     @Published var notLoginStatus : Bool = false
     
     init() {
+        //TO DO: - сбрасывается при перезапуске
+        self.notLoginStatus = checkNotLoginStatus()
+        
         FirebaseApp.configure()
         reference = Database.database().reference()
+    }
+    
+    private func checkNotLoginStatus() -> Bool {
+        let id = UserDefaults.standard.object(forKey: DefaultProfile.authId.rawValue)
+        if (id == nil) {
+            return true
+        } else {
+            return false
+        }
     }
     
     
@@ -57,7 +68,6 @@ public class FireBase : ObservableObject{
                         group.enter()
                         print(id);
                         self.notLoginStatus = false
-                        print(self.notLoginStatus);
                         UserDefaults.standard.setValue(id, forKey: DefaultProfile.authId.rawValue)
                         group.leave()
                     } else {
@@ -76,7 +86,7 @@ public class FireBase : ObservableObject{
     
     func appendNote(_  note : NoteFileModel){
         let id = UUID().uuidString
-        self.reference.child("Note").child(id).setValue(["title" : note.title,  "text" : note.text])
+        //self.reference.child("Note").child(id).setValue(["title" : note.title,  "text" : note.text])
     }
     
     

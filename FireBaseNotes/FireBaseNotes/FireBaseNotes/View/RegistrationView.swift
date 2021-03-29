@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct RegistrationView: View {
+    @Binding var showModal: Bool
+    
     @State var mail : String = ""
     @State var password : String = ""
-    @ObservedObject private var fb :  FireBase = FireBase()
+    @ObservedObject var fb :  FireBase
     var body: some View {
         VStack(alignment: .center, spacing : 15) {
             Spacer()
