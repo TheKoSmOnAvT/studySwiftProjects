@@ -14,7 +14,7 @@ struct FireBaseNotesApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-               Text("тут лист для работы с заметками")
+                NoteListView()
                  .tabItem {
                     Image(systemName: "highlighter")
                     Text("Заметки")
