@@ -25,8 +25,6 @@ public class CoreData : ObservableObject {
             }
         })
         self.persistentContainer = container
-        //AddNote(note: NoteFileModel(title: "TEST", text: "TEST"))
-        //GetNotes()
     }
     
     public func GetNotes(){
@@ -38,8 +36,8 @@ public class CoreData : ObservableObject {
     
     public func AddNote(note : NoteFileModel){
         let newEnity = NoteModel(context: context)
-        newEnity.id = note.id
-        newEnity.tile = note.title
+        newEnity.id = UUID()
+        newEnity.title = note.title
         newEnity.text = note.text
         if context.hasChanges {
                   do {
@@ -52,6 +50,11 @@ public class CoreData : ObservableObject {
               }
         
     }
+    
+    public func ChangeNote(note : NoteFileModel) {
+        
+    }
+    
     public func DeleteNote(note : NoteFileModel) {
         //let delete = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         //try context.execute(delete)

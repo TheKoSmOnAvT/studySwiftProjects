@@ -14,16 +14,17 @@ struct FireBaseNotesApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                NoteListView()
-                 .tabItem {
-                    Image(systemName: "highlighter")
-                    Text("Заметки")
+                NoteListView(fb: fb)
+                    .tabItem {
+                        Image(systemName: "highlighter")
+                        Text("Заметки")
                   }
-                AccountView(fb: fb).tabItem {
-                    Image(systemName: "person.circle")
-                    Text("Аккаунт")
+                AccountView(fb: fb)
+                    .tabItem {
+                        Image(systemName: "person.circle")
+                        Text("Аккаунт")
                 }
-            }
+            }.accentColor(.pink)
         }
     }
 }

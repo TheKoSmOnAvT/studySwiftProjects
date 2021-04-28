@@ -18,7 +18,7 @@ extension NoteModel {
 
     @NSManaged public var id: UUID?
     @NSManaged public var text: String?
-    @NSManaged public var tile: String?
+    @NSManaged public var title: String?
 
 }
 

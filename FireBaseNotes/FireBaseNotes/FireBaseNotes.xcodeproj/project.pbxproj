@@ -13,6 +13,7 @@
 		3821A2F125D2CC4D00988955 /* NoteCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A2F025D2CC4D00988955 /* NoteCreationView.swift */; };
 		382BCB4B260B4E9400831B45 /* NoteFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382BCB4A260B4E9400831B45 /* NoteFileModel.swift */; };
 		3834CEF925E5751B0009D65F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3834CEF825E5751B0009D65F /* Enums.swift */; };
+		3857BED72635D98C002101CF /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857BED62635D98C002101CF /* NoteView.swift */; };
 		386E48CC25DD6DF00029A8D2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E48CB25DD6DF00029A8D2 /* Account.swift */; };
 		38A0461C25FFC81C002D61B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38A0461B25FFC81C002D61B1 /* GoogleService-Info.plist */; };
 		38AA57CD262C8B9800FFE4A1 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA57CC262C8B9800FFE4A1 /* CoreData.swift */; };
@@ -35,6 +36,7 @@
 		3821A2F025D2CC4D00988955 /* NoteCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreationView.swift; sourceTree = "<group>"; };
 		382BCB4A260B4E9400831B45 /* NoteFileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFileModel.swift; sourceTree = "<group>"; };
 		3834CEF825E5751B0009D65F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		3857BED62635D98C002101CF /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
 		386E48CB25DD6DF00029A8D2 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		38A0461B25FFC81C002D61B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		38AA57CC262C8B9800FFE4A1 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
@@ -76,12 +78,12 @@
 		3821A2E925D2C73D00988955 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				388D019026344696009A8330 /* SubView */,
 				3821A2EA25D2C75100988955 /* LoginView.swift */,
 				3821A2ED25D2CB7000988955 /* RegistrationView.swift */,
 				3821A2F025D2CC4D00988955 /* NoteCreationView.swift */,
 				38E04F1B2612288E0063B960 /* AccountView.swift */,
 				38B23CD5262C952900146B58 /* NoteListView.swift */,
+				3857BED62635D98C002101CF /* NoteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -101,13 +103,6 @@
 				382BCB4A260B4E9400831B45 /* NoteFileModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		388D019026344696009A8330 /* SubView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SubView;
 			sourceTree = "<group>";
 		};
 		38AA57D3262C8CC700FFE4A1 /* CoreData */ = {
@@ -313,6 +308,7 @@
 				38B23CCF262C90E400146B58 /* NoteModel+CoreDataProperties.swift in Sources */,
 				3821A2EB25D2C75100988955 /* LoginView.swift in Sources */,
 				38F570F325D0147C001140DA /* FireBaseNotesApp.swift in Sources */,
+				3857BED72635D98C002101CF /* NoteView.swift in Sources */,
 				3834CEF925E5751B0009D65F /* Enums.swift in Sources */,
 				386E48CC25DD6DF00029A8D2 /* Account.swift in Sources */,
 				38B23CCE262C90E400146B58 /* NoteModel+CoreDataClass.swift in Sources */,
@@ -454,6 +450,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = kosmo.FireBaseNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -477,6 +474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = kosmo.FireBaseNotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

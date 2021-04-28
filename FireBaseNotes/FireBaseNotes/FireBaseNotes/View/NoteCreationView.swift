@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct NotecreationView: View {
-    var fb : FireBase
+struct NoteCreationView: View {
+   // var fb : FireBase
+    var cd : CoreData
     @State private var title : String = ""
     @State private var text : String = ""
     public var actionName : String = "Add note"
     var body: some View {
         VStack(alignment: .center, spacing: 15) {
             Spacer()
-            
             TextField("Title", text: $title)
                 .padding()
                 .background(Color.white)
@@ -30,7 +30,8 @@ struct NotecreationView: View {
                 .padding()
 
             Button(action: {
-                fb.appendNote(NoteFileModel(title: self.title, text: self.text) )
+                cd.AddNote(note: NoteFileModel(title: self.title, text: self.text))
+              //  fb.appendNote(NoteFileModel(title: self.title, text: self.text) )
             }, label: {
                     Text(actionName)
                         .font(.custom( "Helvetica Neue",fixedSize: 20))
@@ -42,7 +43,10 @@ struct NotecreationView: View {
         }
         .background(
             LinearGradient(gradient: Gradient(colors: [Color.red, Color.blue]), startPoint: .leading, endPoint: .trailing)
-        ).ignoresSafeArea()
+        )
+        .onAppear(perform: {
+                        UITabBar.appearance().isHidden = true
+                    })
     }
 }
 
