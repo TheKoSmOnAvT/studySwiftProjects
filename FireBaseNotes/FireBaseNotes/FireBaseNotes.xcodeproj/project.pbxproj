@@ -12,16 +12,22 @@
 		3821A2EE25D2CB7000988955 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A2ED25D2CB7000988955 /* RegistrationView.swift */; };
 		3821A2F125D2CC4D00988955 /* NoteCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3821A2F025D2CC4D00988955 /* NoteCreationView.swift */; };
 		382BCB4B260B4E9400831B45 /* NoteFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 382BCB4A260B4E9400831B45 /* NoteFileModel.swift */; };
+		3832D975265BC7B200FF6B75 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3832D973265BC7B200FF6B75 /* DataModel.xcdatamodeld */; };
 		3834CEF925E5751B0009D65F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3834CEF825E5751B0009D65F /* Enums.swift */; };
-		3857BED72635D98C002101CF /* NoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3857BED62635D98C002101CF /* NoteView.swift */; };
+		38490A922652C69100095CF8 /* ChangeNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38490A912652C69100095CF8 /* ChangeNoteView.swift */; };
 		386E48CC25DD6DF00029A8D2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E48CB25DD6DF00029A8D2 /* Account.swift */; };
 		38A0461C25FFC81C002D61B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38A0461B25FFC81C002D61B1 /* GoogleService-Info.plist */; };
 		38AA57CD262C8B9800FFE4A1 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA57CC262C8B9800FFE4A1 /* CoreData.swift */; };
-		38B23CCE262C90E400146B58 /* NoteModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B23CCC262C90E400146B58 /* NoteModel+CoreDataClass.swift */; };
-		38B23CCF262C90E400146B58 /* NoteModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B23CCD262C90E400146B58 /* NoteModel+CoreDataProperties.swift */; };
 		38B23CD6262C952900146B58 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B23CD5262C952900146B58 /* NoteListView.swift */; };
-		38B23CDB262C966C00146B58 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38B23CD9262C966C00146B58 /* DataModel.xcdatamodeld */; };
 		38E04F1C2612288E0063B960 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E04F1B2612288E0063B960 /* AccountView.swift */; };
+		38EC34A7265BD1A3005645AC /* NoteToDelete+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC349F265BD1A3005645AC /* NoteToDelete+CoreDataClass.swift */; };
+		38EC34A8265BD1A3005645AC /* NoteToDelete+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC34A0265BD1A3005645AC /* NoteToDelete+CoreDataProperties.swift */; };
+		38EC34A9265BD1A3005645AC /* NoteToUpdate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC34A1265BD1A3005645AC /* NoteToUpdate+CoreDataClass.swift */; };
+		38EC34AA265BD1A3005645AC /* NoteToUpdate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC34A2265BD1A3005645AC /* NoteToUpdate+CoreDataProperties.swift */; };
+		38EC34AB265BD1A3005645AC /* NoteModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC34A3265BD1A3005645AC /* NoteModel+CoreDataClass.swift */; };
+		38EC34AC265BD1A3005645AC /* NoteModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC34A4265BD1A3005645AC /* NoteModel+CoreDataProperties.swift */; };
+		38EC34AD265BD1A3005645AC /* NoteToCreate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC34A5265BD1A3005645AC /* NoteToCreate+CoreDataClass.swift */; };
+		38EC34AE265BD1A3005645AC /* NoteToCreate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EC34A6265BD1A3005645AC /* NoteToCreate+CoreDataProperties.swift */; };
 		38F570F325D0147C001140DA /* FireBaseNotesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F570F225D0147C001140DA /* FireBaseNotesApp.swift */; };
 		38F570F725D0147E001140DA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F570F625D0147E001140DA /* Assets.xcassets */; };
 		38F570FA25D0147E001140DA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38F570F925D0147E001140DA /* Preview Assets.xcassets */; };
@@ -35,16 +41,22 @@
 		3821A2ED25D2CB7000988955 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		3821A2F025D2CC4D00988955 /* NoteCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteCreationView.swift; sourceTree = "<group>"; };
 		382BCB4A260B4E9400831B45 /* NoteFileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFileModel.swift; sourceTree = "<group>"; };
+		3832D974265BC7B200FF6B75 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		3834CEF825E5751B0009D65F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
-		3857BED62635D98C002101CF /* NoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteView.swift; sourceTree = "<group>"; };
+		38490A912652C69100095CF8 /* ChangeNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNoteView.swift; sourceTree = "<group>"; };
 		386E48CB25DD6DF00029A8D2 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		38A0461B25FFC81C002D61B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		38AA57CC262C8B9800FFE4A1 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
-		38B23CCC262C90E400146B58 /* NoteModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteModel+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		38B23CCD262C90E400146B58 /* NoteModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteModel+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		38B23CD5262C952900146B58 /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
-		38B23CDA262C966C00146B58 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		38E04F1B2612288E0063B960 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		38EC349F265BD1A3005645AC /* NoteToDelete+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteToDelete+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		38EC34A0265BD1A3005645AC /* NoteToDelete+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteToDelete+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		38EC34A1265BD1A3005645AC /* NoteToUpdate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteToUpdate+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		38EC34A2265BD1A3005645AC /* NoteToUpdate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteToUpdate+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		38EC34A3265BD1A3005645AC /* NoteModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteModel+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		38EC34A4265BD1A3005645AC /* NoteModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteModel+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		38EC34A5265BD1A3005645AC /* NoteToCreate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteToCreate+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		38EC34A6265BD1A3005645AC /* NoteToCreate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NoteToCreate+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		38F570EF25D0147C001140DA /* FireBaseNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireBaseNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38F570F225D0147C001140DA /* FireBaseNotesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseNotesApp.swift; sourceTree = "<group>"; };
 		38F570F625D0147E001140DA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,9 +93,9 @@
 				3821A2EA25D2C75100988955 /* LoginView.swift */,
 				3821A2ED25D2CB7000988955 /* RegistrationView.swift */,
 				3821A2F025D2CC4D00988955 /* NoteCreationView.swift */,
+				38490A912652C69100095CF8 /* ChangeNoteView.swift */,
 				38E04F1B2612288E0063B960 /* AccountView.swift */,
 				38B23CD5262C952900146B58 /* NoteListView.swift */,
-				3857BED62635D98C002101CF /* NoteView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,9 +128,15 @@
 		38B23CBF262C8F9900146B58 /* DataBaseModels */ = {
 			isa = PBXGroup;
 			children = (
-				38B23CD9262C966C00146B58 /* DataModel.xcdatamodeld */,
-				38B23CCC262C90E400146B58 /* NoteModel+CoreDataClass.swift */,
-				38B23CCD262C90E400146B58 /* NoteModel+CoreDataProperties.swift */,
+				38EC349F265BD1A3005645AC /* NoteToDelete+CoreDataClass.swift */,
+				38EC34A0265BD1A3005645AC /* NoteToDelete+CoreDataProperties.swift */,
+				38EC34A1265BD1A3005645AC /* NoteToUpdate+CoreDataClass.swift */,
+				38EC34A2265BD1A3005645AC /* NoteToUpdate+CoreDataProperties.swift */,
+				38EC34A3265BD1A3005645AC /* NoteModel+CoreDataClass.swift */,
+				38EC34A4265BD1A3005645AC /* NoteModel+CoreDataProperties.swift */,
+				38EC34A5265BD1A3005645AC /* NoteToCreate+CoreDataClass.swift */,
+				38EC34A6265BD1A3005645AC /* NoteToCreate+CoreDataProperties.swift */,
+				3832D973265BC7B200FF6B75 /* DataModel.xcdatamodeld */,
 			);
 			path = DataBaseModels;
 			sourceTree = "<group>";
@@ -297,21 +315,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38EC34AD265BD1A3005645AC /* NoteToCreate+CoreDataClass.swift in Sources */,
 				3821A2F125D2CC4D00988955 /* NoteCreationView.swift in Sources */,
+				38EC34AA265BD1A3005645AC /* NoteToUpdate+CoreDataProperties.swift in Sources */,
 				38B23CD6262C952900146B58 /* NoteListView.swift in Sources */,
+				3832D975265BC7B200FF6B75 /* DataModel.xcdatamodeld in Sources */,
+				38EC34AC265BD1A3005645AC /* NoteModel+CoreDataProperties.swift in Sources */,
+				38EC34AE265BD1A3005645AC /* NoteToCreate+CoreDataProperties.swift in Sources */,
 				3805E08C25D018B60049FA57 /* FireBase.swift in Sources */,
 				38E04F1C2612288E0063B960 /* AccountView.swift in Sources */,
+				38490A922652C69100095CF8 /* ChangeNoteView.swift in Sources */,
+				38EC34A9265BD1A3005645AC /* NoteToUpdate+CoreDataClass.swift in Sources */,
 				38AA57CD262C8B9800FFE4A1 /* CoreData.swift in Sources */,
-				38B23CDB262C966C00146B58 /* DataModel.xcdatamodeld in Sources */,
 				382BCB4B260B4E9400831B45 /* NoteFileModel.swift in Sources */,
 				3821A2EE25D2CB7000988955 /* RegistrationView.swift in Sources */,
-				38B23CCF262C90E400146B58 /* NoteModel+CoreDataProperties.swift in Sources */,
+				38EC34AB265BD1A3005645AC /* NoteModel+CoreDataClass.swift in Sources */,
 				3821A2EB25D2C75100988955 /* LoginView.swift in Sources */,
+				38EC34A7265BD1A3005645AC /* NoteToDelete+CoreDataClass.swift in Sources */,
 				38F570F325D0147C001140DA /* FireBaseNotesApp.swift in Sources */,
-				3857BED72635D98C002101CF /* NoteView.swift in Sources */,
+				38EC34A8265BD1A3005645AC /* NoteToDelete+CoreDataProperties.swift in Sources */,
 				3834CEF925E5751B0009D65F /* Enums.swift in Sources */,
 				386E48CC25DD6DF00029A8D2 /* Account.swift in Sources */,
-				38B23CCE262C90E400146B58 /* NoteModel+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -506,14 +530,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		38B23CD9262C966C00146B58 /* DataModel.xcdatamodeld */ = {
+		3832D973265BC7B200FF6B75 /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				38B23CDA262C966C00146B58 /* DataModel.xcdatamodel */,
+				3832D974265BC7B200FF6B75 /* DataModel.xcdatamodel */,
 			);
-			currentVersion = 38B23CDA262C966C00146B58 /* DataModel.xcdatamodel */;
-			name = DataModel.xcdatamodeld;
-			path = ../DataModel.xcdatamodeld;
+			currentVersion = 3832D974265BC7B200FF6B75 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

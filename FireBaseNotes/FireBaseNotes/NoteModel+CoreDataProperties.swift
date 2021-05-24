@@ -2,7 +2,7 @@
 //  NoteModel+CoreDataProperties.swift
 //  FireBaseNotes
 //
-//  Created by Никита Попов on 18.04.2021.
+//  Created by Никита Попов on 24.05.2021.
 //
 //
 

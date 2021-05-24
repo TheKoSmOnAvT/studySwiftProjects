@@ -1,5 +1,5 @@
 //
-//  NoteModel+CoreDataClass.swift
+//  NoteToCreate+CoreDataClass.swift
 //  FireBaseNotes
 //
 //  Created by Никита Попов on 24.05.2021.
@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(NoteModel)
-public class NoteModel: NSManagedObject {
+@objc(NoteToCreate)
+public class NoteToCreate: NSManagedObject {
 
 }

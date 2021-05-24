@@ -61,33 +61,31 @@ struct NoteListView: View {
             NavigationView {
             VStack {
                 HeadList()
-                List(self.cd.noteList) { note in
-                    NavigationLink(destination: NoteView(cd: cd, note: note)) {
-                            NoteRowView(note: note)
-                        }
+                List {
+                ForEach(self.cd.noteList, id :\.id ) { note in
+                    NavigationLink(destination: ChangeNoteView(cd: cd, id: note.id!, title : note.title  ?? "", text: note.text ?? "")) {
+                        NoteRowView(note: note)
                     }
+                }.onDelete(perform: delete)
+                }
                 .navigationBarTitle("", displayMode: .inline)
                 .navigationBarHidden(true)
-                .onAppear {
-                        self.cd.GetNotes()
-                }
             }
-        }
-//            .background(TabBarAccessor { tabbar in   // << here !!
-//            self.tabBar = tabbar
-//        })
+        }.onAppear {
+            self.cd.GetNotes()
+    }
+    }
+    
+    private func delete(with indexSet: IndexSet) {
+        self.cd.DeleteByIndexNote(index: indexSet)
     }
 }
 
-//struct NoteListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NoteListView()
-//    }
-//}
+
 
 
 struct NoteRowView: View {
-    var note: NoteModel
+    @ObservedObject var note: NoteModel
     var body: some View {
         HStack {
             VStack(alignment: .leading) {

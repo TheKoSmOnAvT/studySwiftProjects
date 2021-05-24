@@ -1,22 +1,24 @@
 //
-//  NotecreationView.swift
+//  ChangeView.swift
 //  FireBaseNotes
 //
-//  Created by Никита Попов on 09.02.2021.
+//  Created by Никита Попов on 17.05.2021.
 //
 
 import SwiftUI
 
-struct NoteCreationView: View {
+struct ChangeNoteView: View {
     var cd : CoreData
+    public var id : UUID
     @State public var title : String = ""
-    @State public var text : String = ""
+    @State public var text : String  = ""
+    
     @Environment(\.presentationMode) var presentation
     
     private var actionButton : Bool {
         return text == "" || title == ""
     }
-    
+
     var body: some View {
         VStack(alignment: .center, spacing: 15) {
             Spacer()
@@ -34,10 +36,10 @@ struct NoteCreationView: View {
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
 
             Button(action: {
-                cd.AddNote(note: NoteFileModel(title: self.title, text: self.text))
+                cd.ChangeNote(note: NoteFileModel(id: self.id ,title: self.title, text: self.text))
                 self.presentation.wrappedValue.dismiss()
             }, label: {
-                    Text("Add note")
+                    Text("Change note")
                         .font(.custom( "Helvetica Neue",fixedSize: 20))
                         .padding()
                         .background(Color.white)
