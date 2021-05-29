@@ -77,7 +77,7 @@ struct NoteListView: View {
     }
     
     private func delete(with indexSet: IndexSet) {
-        self.cd.DeleteByIndexNote(index: indexSet)
+        self.cd.DeleteNote(index: indexSet)
     }
 }
 

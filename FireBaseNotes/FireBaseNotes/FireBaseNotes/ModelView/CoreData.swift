@@ -16,7 +16,6 @@ public class CoreData : ObservableObject {
          persistentContainer.viewContext
     }
     
-    
     init(){
         let container = NSPersistentContainer(name: "DataModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -28,6 +27,7 @@ public class CoreData : ObservableObject {
         noteList = []
     }
     
+    //MARK: - Update Collection
     public func GetNotes() {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NoteModel.fetchRequest()
         if let result = try? context.fetch(fetchRequest) as? [NoteModel] {
@@ -35,31 +35,32 @@ public class CoreData : ObservableObject {
         }
     }
     
-    public func AddNote(note : NoteFileModel){
+    //MARK: - CRUD NoteModel
+    private func AddNoteModel(_ note : NoteFileModel) -> UUID? {
         let newEnity = NoteModel(context: context)
-        if note.title == "" || note.text == ""  { return }
+        if note.title == "" || note.text == ""  { return nil }
         newEnity.id = UUID()
         newEnity.title = note.title
         newEnity.text = note.text
         saveContext()
+        return newEnity.id
     }
-    
-    public func ChangeNote(note : NoteFileModel) {
+    private func ChangeNoteModel(_ note : NoteFileModel) -> Bool {
         let predicate = NSPredicate(format: "id == %@", note.id as CVarArg)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "NoteModel")
         fetchRequest.predicate = predicate
         fetchRequest.fetchLimit = 1
         let results = try! context.fetch(fetchRequest)
         if results.isEmpty {
-            return
+            return false
         }
         let object = results.first as! NoteModel
         object.text = note.text
         object.title = note.title
         saveContext()
+        return true
     }
-    
-    public func DeleteNote(note : NoteModel) {
+    private func DeleteNoteModel(_ note : NoteModel) {
         let predicate = NSPredicate(format: "id == %@", note.id! as CVarArg)
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "NoteModel")
         fetchRequest.predicate = predicate
@@ -69,19 +70,60 @@ public class CoreData : ObservableObject {
         saveContext()
     }
     
-    public func DeleteByIndexNote(index : IndexSet) {
+    //MARK: - server update note data
+    private func AddNoteToCreate(_ note : NoteFileModel) {
+        let newEnity = NoteToCreate(context: context)
+        newEnity.id = UUID()
+        newEnity.title = note.title
+        newEnity.text = note.text
+        saveContext()
+    }
+    private func AddNoteToUpdate(_ note : NoteFileModel) {
+        let newEnity = NoteToUpdate(context: context)
+        newEnity.id = UUID()
+        newEnity.title = note.title
+        newEnity.text = note.text
+        saveContext()
+    }
+    private func AddNoteToDelete(_ note : NoteFileModel) {
+        let newEnity = NoteToDelete(context: context)
+        newEnity.id = UUID()
+        saveContext()
+    }
+    
+    //MARK: - CRUD
+    public func AddNote(note : NoteFileModel){
+        if let id = AddNoteModel(note) {
+            note.id = id
+            AddNoteToCreate(note)
+        }
+    }
+    public func ChangeNote(note : NoteFileModel) {
+        let check = ChangeNoteModel(note)
+        if(check){
+            AddNoteToUpdate(note)
+        }
+    }
+    public func DeleteNote(index : IndexSet) {
+        if let note = DeleteByIndexNote(index) {
+            DeleteNoteModel(note)
+        }
+    }
+    
+    private func DeleteByIndexNote(_ index : IndexSet) -> NoteModel? {
         let ind : Int = index.first ?? -1
         if ind != -1 {
             var check :  Int = 0
             for obj in noteList {
                 if(check == ind ) {
+                    let objectToDelete = obj
                     self.noteList.remove(at: ind)
-                    DeleteNote(note: obj)
-                    return
+                    return objectToDelete
                 }
                 check = check + 1
             }
         }
+        return nil
     }
     
     
