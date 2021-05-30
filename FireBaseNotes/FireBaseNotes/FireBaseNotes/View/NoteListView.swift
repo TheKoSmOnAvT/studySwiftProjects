@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct NoteListView: View {
-    @ObservedObject var cd = CoreData()
-    var fb : FireBase
+    @ObservedObject var cd : CoreData 
+    //var fb : FireBase
     fileprivate func AddNoteButton() -> some View {
         return HStack{
             NavigationLink(destination:
@@ -22,7 +22,7 @@ struct NoteListView: View {
                     .background(
                         ContainerRelativeShape()
                             .fill(Color.white)
-                            .cornerRadius(14)
+                            .cornerRadius(16)
                     )
             }
             .statusBar(hidden: true)

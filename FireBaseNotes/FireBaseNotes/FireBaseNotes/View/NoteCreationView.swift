@@ -21,18 +21,22 @@ struct NoteCreationView: View {
         ScrollView(.vertical) {
             VStack(alignment: .center, spacing: 15) {
                 Spacer()
-                TextField("Title", text: $title)
+                TextField("Title", text:$title)
+                    .foregroundColor(.black)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(12)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 
                 TextEditor(text: $text)
+                    .background(Color.white)
                     .frame(
                            height: UIScreen.main.bounds.size.height * 0.6,
                            alignment: .center)
                     .cornerRadius(12)
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                    
+                    
 
                 Button(action: {
                     cd.AddNote(note: NoteFileModel(title: self.title, text: self.text))

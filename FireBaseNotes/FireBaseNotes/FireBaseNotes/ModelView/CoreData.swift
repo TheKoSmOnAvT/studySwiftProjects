@@ -29,7 +29,7 @@ public class CoreData : ObservableObject {
     
     //MARK: - Update Collection
     public func GetNotes() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NoteModel.fetchRequest()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "NoteModel")
         if let result = try? context.fetch(fetchRequest) as? [NoteModel] {
             self.noteList = result
         }
@@ -73,24 +73,24 @@ public class CoreData : ObservableObject {
     //MARK: - server update note data
     private func AddNoteToCreate(_ note : NoteFileModel) {
         let newEnity = NoteToCreate(context: context)
-        newEnity.id = UUID()
+        newEnity.id = note.id
         newEnity.title = note.title
         newEnity.text = note.text
         saveContext()
     }
     private func AddNoteToUpdate(_ note : NoteFileModel) {
         let newEnity = NoteToUpdate(context: context)
-        newEnity.id = UUID()
+        newEnity.id = note.id
         newEnity.title = note.title
         newEnity.text = note.text
         saveContext()
     }
-    private func AddNoteToDelete(_ note : NoteFileModel) {
+    private func AddNoteToDelete(_ note : NoteModel) {
         let newEnity = NoteToDelete(context: context)
-        newEnity.id = UUID()
+        newEnity.id = note.id 
         saveContext()
     }
-    
+
     //MARK: - CRUD
     public func AddNote(note : NoteFileModel){
         if let id = AddNoteModel(note) {
@@ -106,6 +106,7 @@ public class CoreData : ObservableObject {
     }
     public func DeleteNote(index : IndexSet) {
         if let note = DeleteByIndexNote(index) {
+            AddNoteToDelete(note)
             DeleteNoteModel(note)
         }
     }
@@ -126,7 +127,6 @@ public class CoreData : ObservableObject {
         return nil
     }
     
-    
     private func saveContext() {
         if context.hasChanges {
             do {
@@ -139,5 +139,4 @@ public class CoreData : ObservableObject {
         self.noteList = []
         GetNotes()
     }
-    
 }

@@ -24,6 +24,7 @@ struct ChangeNoteView: View {
             VStack(alignment: .center, spacing: 15) {
                 Spacer()
                 TextField("Title", text: $title)
+                    .foregroundColor(.black)
                     .padding()
                     .background(Color.white)
                     .cornerRadius(12)

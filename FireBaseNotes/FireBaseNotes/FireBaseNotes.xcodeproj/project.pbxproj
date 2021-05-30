@@ -17,7 +17,7 @@
 		3834CEF925E5751B0009D65F /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3834CEF825E5751B0009D65F /* Enums.swift */; };
 		38490A922652C69100095CF8 /* ChangeNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38490A912652C69100095CF8 /* ChangeNoteView.swift */; };
 		386E48CC25DD6DF00029A8D2 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 386E48CB25DD6DF00029A8D2 /* Account.swift */; };
-		38A0461C25FFC81C002D61B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 38A0461B25FFC81C002D61B1 /* GoogleService-Info.plist */; };
+		388633D826639C7D00F5E5D2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 388633D726639C7D00F5E5D2 /* GoogleService-Info.plist */; };
 		38AA57CD262C8B9800FFE4A1 /* CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AA57CC262C8B9800FFE4A1 /* CoreData.swift */; };
 		38B23CD6262C952900146B58 /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B23CD5262C952900146B58 /* NoteListView.swift */; };
 		38E04F1C2612288E0063B960 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E04F1B2612288E0063B960 /* AccountView.swift */; };
@@ -47,7 +47,7 @@
 		3834CEF825E5751B0009D65F /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		38490A912652C69100095CF8 /* ChangeNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNoteView.swift; sourceTree = "<group>"; };
 		386E48CB25DD6DF00029A8D2 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
-		38A0461B25FFC81C002D61B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		388633D726639C7D00F5E5D2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		38AA57CC262C8B9800FFE4A1 /* CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreData.swift; sourceTree = "<group>"; };
 		38B23CD5262C952900146B58 /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
 		38E04F1B2612288E0063B960 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
@@ -147,7 +147,7 @@
 		38F570E625D0147C001140DA = {
 			isa = PBXGroup;
 			children = (
-				38A0461B25FFC81C002D61B1 /* GoogleService-Info.plist */,
+				388633D726639C7D00F5E5D2 /* GoogleService-Info.plist */,
 				38F570F125D0147C001140DA /* FireBaseNotes */,
 				38F570F025D0147C001140DA /* Products */,
 				8A71BD5467C3825A2B2EF74D /* Pods */,
@@ -263,9 +263,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38A0461C25FFC81C002D61B1 /* GoogleService-Info.plist in Resources */,
 				38F570FA25D0147E001140DA /* Preview Assets.xcassets in Resources */,
 				38F570F725D0147E001140DA /* Assets.xcassets in Resources */,
+				388633D826639C7D00F5E5D2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

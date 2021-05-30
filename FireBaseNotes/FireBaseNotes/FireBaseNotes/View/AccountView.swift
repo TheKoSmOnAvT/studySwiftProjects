@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AccountView: View {
     @ObservedObject var fb : FireBase
+    @ObservedObject var cd = CoreData()
     
     @State private var showLogin = false
     @State private var showRegistration = false
@@ -30,12 +31,28 @@ struct AccountView: View {
                                     .stroke(Color.black, lineWidth: 2)
                             )
                     }
+                    
+                    Button(action: {
+                        self.fb.SyncData()
+                        self.cd.GetNotes()
+                    }) {
+                        Text("Sync")
+                            .padding()
+                            .foregroundColor(.black)
+                            .background(Color.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.black, lineWidth: 2)
+                            )
+                    }
+                    
                 } else {
                     Button("Login") {
                         self.showLogin.toggle()
                     }.sheet(isPresented: self.$showLogin) {
                         LoginView(showModal: self.$showLogin, fb: fb)
                     }.padding(.top, 50)
+     
                     
                     Button("Registration") {
                         self.showRegistration.toggle()
