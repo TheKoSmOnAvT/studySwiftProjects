@@ -50,11 +50,6 @@ struct LoginView: View {
                         .shadow(radius: 10.0, x: 20, y: 10)
             }).padding(.top, 50)
         Spacer()
-            //TO  DO: alert
-        
-//        .alert(isPresented: self.$fb.notLoginStatus ){ () -> Alert in
-//           return Alert(title: Text("Incorrect login or password"))
-//        }
         }.background(
             LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))

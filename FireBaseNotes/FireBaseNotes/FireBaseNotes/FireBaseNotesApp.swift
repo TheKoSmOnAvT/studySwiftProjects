@@ -10,26 +10,15 @@ import Firebase
 
 @main
 struct FireBaseNotesApp: App {
-    private var fb : FireBase = FireBase()
+    @ObservedObject var fb : FireBase = FireBase()
     @ObservedObject var cd = CoreData()
-//
-//    init() {
-//        Sync()
-//    }
-//
-//    mutating func Sync(){
-//        var FB =  self.fb
-//        DispatchQueue.global(qos: .background).async {
-//            FB.SyncData()
-//           }
-//    }
-    
-    
     var body: some Scene {
         WindowGroup {
             TabView {
-                //NoteListView(fb: fb)
                 NoteListView(cd: cd)
+                    .onAppear {
+                        self.cd.GetNotes()
+                }
                     .tabItem {
                         Image(systemName: "highlighter")
                         Text("Заметки")

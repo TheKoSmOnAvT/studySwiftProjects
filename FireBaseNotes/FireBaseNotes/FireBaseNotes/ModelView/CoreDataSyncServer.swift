@@ -17,7 +17,7 @@ class CoreDataSyncServer : ObservableObject {
     
     //MARK: - init
     init(){
-        let container = NSPersistentContainer(name: "DataModel")
+        let container = NSPersistentContainer(name: "DB")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
@@ -87,7 +87,7 @@ class CoreDataSyncServer : ObservableObject {
     
     //MARK: - Add ,  delete NoteModel
     public func AddNoteModel(_ note : NoteFileModel)  {
-            let newEnity = NoteModel(context: context)
+            let newEnity = Note(context: context)
             newEnity.id = note.id
             newEnity.title = note.title
             newEnity.text = note.text
@@ -95,7 +95,7 @@ class CoreDataSyncServer : ObservableObject {
     }
     
     public func TruncateNoteModel() {
-        let request = NSFetchRequest<NSManagedObject>(entityName: "NoteModel")
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Note")
         if let result = try? context.fetch(request){
             for obj in result {
                 context.delete(obj)

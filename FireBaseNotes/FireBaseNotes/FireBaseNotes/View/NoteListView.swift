@@ -9,7 +9,6 @@ import SwiftUI
 
 struct NoteListView: View {
     @ObservedObject var cd : CoreData 
-    //var fb : FireBase
     fileprivate func AddNoteButton() -> some View {
         return HStack{
             NavigationLink(destination:
@@ -63,7 +62,7 @@ struct NoteListView: View {
                 HeadList()
                 List {
                 ForEach(self.cd.noteList, id :\.id ) { note in
-                    NavigationLink(destination: ChangeNoteView(cd: cd, id: note.id!, title : note.title  ?? "", text: note.text ?? "")) {
+                    NavigationLink(destination: ChangeNoteView(cd: cd, id: note.id!, title : note.title! , text: note.text! )) {
                         NoteRowView(note: note)
                     }
                 }.onDelete(perform: delete)
@@ -71,9 +70,9 @@ struct NoteListView: View {
                 .navigationBarTitle("", displayMode: .inline)
                 .navigationBarHidden(true)
             }
-        }.onAppear {
-            self.cd.GetNotes()
-    }
+            }.onAppear {
+                self.cd.GetNotes()
+            }
     }
     
     private func delete(with indexSet: IndexSet) {
@@ -85,7 +84,7 @@ struct NoteListView: View {
 
 
 struct NoteRowView: View {
-    @ObservedObject var note: NoteModel
+    @ObservedObject var note: Note
     var body: some View {
         HStack {
             VStack(alignment: .leading) {

@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct ChangeNoteView: View {
-    var cd : CoreData
+    @ObservedObject var cd : CoreData
     public var id : UUID
     @State public var title : String = ""
     @State public var text : String  = ""
-    
     @Environment(\.presentationMode) var presentation
     
     private var actionButton : Bool {
@@ -31,6 +30,8 @@ struct ChangeNoteView: View {
                     .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 
                 TextEditor(text: $text)
+                    .background(Color.white)
+                    .foregroundColor(.black)
                     .frame(
                            height: UIScreen.main.bounds.size.height * 0.6,
                            alignment: .center)
@@ -56,3 +57,13 @@ struct ChangeNoteView: View {
         )
     }
 }
+
+//struct SwiftUIView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        var cd  = CoreData()
+//        var id = UUID()
+//        ChangeNoteView(cd: cd, id: id)
+//            .preferredColorScheme(.dark)
+//            .previewDevice("iPhone 11")
+//    }
+//}

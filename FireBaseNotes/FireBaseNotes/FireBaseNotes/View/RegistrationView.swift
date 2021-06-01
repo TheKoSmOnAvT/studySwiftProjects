@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @Binding var showModal: Bool
+    @Environment(\.presentationMode) var presentation
     
     @State var mail : String = ""
     @State var password : String = ""
@@ -41,6 +41,7 @@ struct RegistrationView: View {
             }
             Button(action: {
                _ =  fb.registration(mail: self.mail, password: self.password)
+                self.presentation.wrappedValue.dismiss()
             }, label: {
                     Text("Create account")
                         .font(.headline)

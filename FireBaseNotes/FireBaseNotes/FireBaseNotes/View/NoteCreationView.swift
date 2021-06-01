@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct NoteCreationView: View {
-    var cd : CoreData
+    @ObservedObject var cd : CoreData
     @State public var title : String = ""
     @State public var text : String = ""
     @Environment(\.presentationMode) var presentation
-    
+
     private var actionButton : Bool {
         return text == "" || title == ""
     }
@@ -30,6 +30,7 @@ struct NoteCreationView: View {
                 
                 TextEditor(text: $text)
                     .background(Color.white)
+                    .foregroundColor(.black)
                     .frame(
                            height: UIScreen.main.bounds.size.height * 0.6,
                            alignment: .center)
@@ -39,7 +40,7 @@ struct NoteCreationView: View {
                     
 
                 Button(action: {
-                    cd.AddNote(note: NoteFileModel(title: self.title, text: self.text))
+                    cd.AddNote( note: NoteFileModel(title: self.title, text: self.text))
                     self.presentation.wrappedValue.dismiss()
                 }, label: {
                         Text("Add note")

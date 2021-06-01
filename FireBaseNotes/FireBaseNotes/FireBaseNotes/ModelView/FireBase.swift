@@ -8,14 +8,16 @@
 import Foundation
 import Firebase
 import Foundation
+import SwiftUI
 import var CommonCrypto.CC_MD5_DIGEST_LENGTH
 import func CommonCrypto.CC_MD5
 import typealias CommonCrypto.CC_LONG
 
 public class FireBase : ObservableObject{
     var reference: DatabaseReference?
-    var db: CoreDataSyncServer  = CoreDataSyncServer()
+    @Published var db: CoreDataSyncServer  = CoreDataSyncServer()
     @Published var notLoginStatus : Bool = false
+    
     var id : String? {
         return UserDefaults.standard.object(forKey: DefaultProfile.authId.rawValue) as? String
     }
@@ -69,7 +71,6 @@ public class FireBase : ObservableObject{
                 if let pass = result["password"] as? String, let id = result["id"] as? String  {
                     if (pass  ==  hashString){
                         group.enter()
-                        print(id);
                         self.notLoginStatus = false
                         UserDefaults.standard.setValue(id, forKey: DefaultProfile.authId.rawValue)
                         group.leave()
@@ -88,13 +89,13 @@ public class FireBase : ObservableObject{
     }
     
     //MARK: - Note CRUD
-    public func SyncData(){
+    public func SyncData(_ loadingStatus : Binding<Bool>){
         let userId =  self.id ?? nil
         if(!notLoginStatus && userId != nil) {
             NoteToCreate(userId!)
             NoteToUpdate(userId!)
             NoteToDelete(userId!)
-            UpdateLocalStorage(userId!)
+            UpdateLocalStorage(userId!, loadingStatus)
         }
     }
     
@@ -174,17 +175,18 @@ public class FireBase : ObservableObject{
         }
     }
     
-    private func UpdateLocalStorage(_ userId : String){
+    private func UpdateLocalStorage(_ userId : String, _ loadingStatus : Binding<Bool> ){
             FBGetNote(userId) { notes in
                 self.db.TruncateNoteModel()
-                self.AddNotesToLocalStorage(notes)
+                self.AddNotesToLocalStorage(notes, loadingStatus)
             }
     }
     
-    private func AddNotesToLocalStorage(_ notes : [NoteFileModel]){
+    private func AddNotesToLocalStorage(_ notes : [NoteFileModel], _ loadingStatus : Binding<Bool>){
         for note in notes {
             self.db.AddNoteModel(note)
         }
+       // loadingStatus.wrappedValue = false
     }
      
     private func FBGetNote(_ userId : String, completion: @escaping ([NoteFileModel]) -> Void) {
