@@ -30,9 +30,49 @@ public class CoreData : ObservableObject {
     public func GetNotes() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
         if let result = try? context.fetch(fetchRequest) as? [Note] {
-            self.noteList = result
+            self.noteList = result.count == 0 ? [] : result
+        } else {
+            self.noteList = []
         }
     }
+    
+
+    public func GetNotesStatus() {
+        print("#####Note######")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Note")
+        if let result = try? context.fetch(fetchRequest) as? [Note] {
+            for i in result{
+                print(i)
+                print(i.id)
+            }
+        }
+        print("#####NoteToCreate######")
+        let fetchRequest1 = NSFetchRequest<NSFetchRequestResult>(entityName: "NoteToCreate")
+        if let result = try? context.fetch(fetchRequest1) as? [NoteToCreate] {
+            for i in result{
+                print(i)
+                print(i.id)
+            }
+        }
+        print("#####NoteToUpdate######")
+        let fetchRequest3 = NSFetchRequest<NSFetchRequestResult>(entityName: "NoteToUpdate")
+        if let result = try? context.fetch(fetchRequest3) as? [NoteToUpdate] {
+            for i in result{
+                print(i)
+                print(i.id)
+            }
+        }
+        print("#####NoteToDelete######")
+        let fetchRequest5 = NSFetchRequest<NSFetchRequestResult>(entityName: "NoteToDelete")
+        if let result = try? context.fetch(fetchRequest5) as? [NoteToDelete] {
+            for i in result{
+                print(i)
+                print(i.id)
+            }
+        }
+        
+    }
+    
     
     //MARK: - CRUD NoteModel
     private func AddNoteModel(_ note : NoteFileModel) -> UUID? {
@@ -79,12 +119,12 @@ public class CoreData : ObservableObject {
     }
     private func AddNoteToUpdate(_ note : NoteFileModel) {
         let predicate = NSPredicate(format: "id == %@", note.id as CVarArg)
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "Note")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "NoteToUpdate")
         fetchRequest.predicate = predicate
         fetchRequest.fetchLimit = 1
         let results = try! context.fetch(fetchRequest)
         if !results.isEmpty {
-            let object = results.first as! Note
+            let object = results.first as! NoteToUpdate
             object.text = note.text
             object.title = note.title
         } else {
@@ -137,7 +177,84 @@ public class CoreData : ObservableObject {
         }
         return nil
     }
+  //////////
+    //MARK: - Get,  delete NoteToCreate
+    public func GetNoteToCreate() -> [NoteToCreate] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NoteToCreate")
+        if let result = try? context.fetch(request) as? [NoteToCreate] {
+            return result
+        } else {
+            return []
+        }
+    }
+    public func TruncateNoteToCreate() {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "NoteToCreate")
+        if let result = try? context.fetch(request){
+            for obj in result {
+                context.delete(obj)
+            }
+            saveContext()
+        }
+    }
     
+    //MARK: - Get,  delete NoteToDelete
+    public func GetNoteToDelete() -> [NoteToDelete] {
+        let request  = NSFetchRequest<NSFetchRequestResult>(entityName: "NoteToDelete")
+        if let result = try? context.fetch(request) as? [NoteToDelete] {
+            return result
+        } else {
+            return []
+        }
+    }
+    public func TruncateNoteToDelete() {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "NoteToDelete")
+        if let result = try? context.fetch(request){
+            for obj in result {
+                context.delete(obj)
+            }
+            saveContext()
+        }
+    }
+    
+    
+    //MARK: - Get,  delete NoteToUpdate
+    public func GetNoteToUpdate() -> [NoteToUpdate] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NoteToUpdate")
+        if let result = try? context.fetch(request)  as?  [NoteToUpdate] {
+            return result
+        } else {
+            return []
+        }
+    }
+    public func TruncateNoteToUpdate() {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "NoteToUpdate")
+        if let result = try? context.fetch(request){
+            for obj in result {
+                context.delete(obj)
+            }
+            saveContext()
+        }
+    }
+    
+    //MARK: - Add ,  delete NoteModel
+    public func AddNoteModel(_ note : NoteFileModel)  {
+            let newEnity = Note(context: context)
+            newEnity.id = note.id
+            newEnity.title = note.title
+            newEnity.text = note.text
+            saveContext()
+    }
+    
+    public func TruncateNoteModel() {
+        let request = NSFetchRequest<NSManagedObject>(entityName: "Note")
+        if let result = try? context.fetch(request){
+            for obj in result {
+                context.delete(obj)
+            }
+            saveContext()
+        }
+    }
+    //////////
     private func saveContext() {
         if context.hasChanges {
             do {

@@ -13,8 +13,12 @@ struct AccountView: View {
     @State private var showLogin = false
     @State private var showRegistration = false
     @State private var showLoading = false
-   // @State private var firstSyncAfterLoginStatus = false
     
+    init(cd : CoreData){
+        self.cd = cd
+        self.fb = FireBase(db: cd)
+    }
+      
     var body: some View {
         NavigationView {
             VStack(alignment: .center, spacing: 10) {

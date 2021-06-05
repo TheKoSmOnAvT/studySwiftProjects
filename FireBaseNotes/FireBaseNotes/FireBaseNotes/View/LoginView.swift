@@ -15,49 +15,53 @@ struct LoginView: View {
     @ObservedObject var fb :  FireBase 
     private let width : CGFloat = 240.0
     var body: some View {
-        VStack(alignment: .center, spacing : 15) {
+        ScrollView(.vertical) {
             Spacer()
-            Image("ICON")
-                .resizable()
-                .frame(width: width, height: width*1.1)
-                .colorInvert()
+            VStack(alignment: .center, spacing : 15) {
+                Spacer()
+                Image("ICON")
+                    .resizable()
+                    .frame(width: width, height: width*1.1)
+                    .colorInvert()
+                    
                 
-            
-            VStack(alignment: .leading, spacing: 15) {
-                        TextField("Mail", text: $mail)
+                VStack(alignment: .leading, spacing: 15) {
+                            TextField("Mail", text: $mail)
+                                .padding()
+                                .background(Color.white)
+                                .cornerRadius(20.0)
+                                .shadow(radius: 10.0, x: 20, y: 10)
+                                .padding()
+                            SecureField("Password", text: $password)
+                                .padding()
+                                .background(Color.white)
+                                .cornerRadius(20.0)
+                                .shadow(radius: 10.0, x: 20, y: 10)
+                                .padding()
+                }
+                Button(action: {
+                    self.fb.login(mail: self.mail, password: self.password)
+                }, label: {
+                        Text("Login")
+                            .font(.headline)
+                            .foregroundColor(.black)
                             .padding()
+                            .frame(width: 300, height: 50)
                             .background(Color.white)
-                            .cornerRadius(20.0)
+                            .cornerRadius(15.0)
                             .shadow(radius: 10.0, x: 20, y: 10)
-                            .padding()
-                        SecureField("Password", text: $password)
-                            .padding()
-                            .background(Color.white)
-                            .cornerRadius(20.0)
-                            .shadow(radius: 10.0, x: 20, y: 10)
-                            .padding()
+                }).padding(.top, 50)
+            Spacer()
             }
-            Button(action: {
-                self.fb.login(mail: self.mail, password: self.password)
-            }, label: {
-                    Text("Login")
-                        .font(.headline)
-                        .foregroundColor(.black)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .background(Color.white)
-                        .cornerRadius(15.0)
-                        .shadow(radius: 10.0, x: 20, y: 10)
-            }).padding(.top, 50)
-        Spacer()
+            .onAppear{
+                if(!self.fb.notLoginStatus) {
+                    self.showModal.toggle()
+                }
+            }
+            Spacer()
         }.background(
             LinearGradient(gradient: Gradient(colors: [.blue, .purple]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all))
-        .onAppear{
-            if(!self.fb.notLoginStatus) {
-                self.showModal.toggle()
-            }
-        }
     }
 }
 

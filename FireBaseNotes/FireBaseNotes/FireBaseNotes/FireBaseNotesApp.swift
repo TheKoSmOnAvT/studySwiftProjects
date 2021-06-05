@@ -10,7 +10,6 @@ import Firebase
 
 @main
 struct FireBaseNotesApp: App {
-    @ObservedObject var fb : FireBase = FireBase()
     @ObservedObject var cd = CoreData()
     var body: some Scene {
         WindowGroup {
@@ -23,12 +22,15 @@ struct FireBaseNotesApp: App {
                         Image(systemName: "highlighter")
                         Text("Заметки")
                   }
-                AccountView(fb: fb, cd: cd)
+                AccountView(cd: cd)
                     .tabItem {
                         Image(systemName: "person.circle")
                         Text("Аккаунт")
                 }
             }.accentColor(.pink)
+            .onAppear{
+                self.cd.GetNotesStatus()
+            }
             
         }
     }

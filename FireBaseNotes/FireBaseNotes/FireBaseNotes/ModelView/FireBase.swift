@@ -15,17 +15,18 @@ import typealias CommonCrypto.CC_LONG
 
 public class FireBase : ObservableObject{
     var reference: DatabaseReference?
-    @Published var db: CoreDataSyncServer  = CoreDataSyncServer()
     @Published var notLoginStatus : Bool = false
-    
+    @ObservedObject var db : CoreData
     var id : String? {
         return UserDefaults.standard.object(forKey: DefaultProfile.authId.rawValue) as? String
     }
     
-    init() {
-        //TO DO: - сбрасывается при перезапуске
+    init(db : CoreData) {
+        self.db = db
         self.notLoginStatus = checkNotLoginStatus()
-        FirebaseApp.configure()
+        if FirebaseApp.app() == nil {
+            FirebaseApp.configure()
+        }
         reference = Database.database().reference()
     }
     
@@ -186,7 +187,7 @@ public class FireBase : ObservableObject{
         for note in notes {
             self.db.AddNoteModel(note)
         }
-       // loadingStatus.wrappedValue = false
+       loadingStatus.wrappedValue = false
     }
      
     private func FBGetNote(_ userId : String, completion: @escaping ([NoteFileModel]) -> Void) {
